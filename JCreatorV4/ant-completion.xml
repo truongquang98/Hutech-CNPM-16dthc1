@@ -4,6 +4,7 @@
 	<root name="project">
 		<structure>
 			<tasks>
+				<task name="ant">
 					<structure>
 						<attributes>
 							<attribute name="antfile" required="false"/>

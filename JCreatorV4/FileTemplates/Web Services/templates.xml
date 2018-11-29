@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Modified on Monday January 09 15:29:29, 2006 -->
+
+<templates>
+	<template>
+		<label>JSP Document</label>
+		<quickaccess>true</quickaccess>
+		<description>Creates a new JSP document.</description>
+		<type>jsp</type>
+		<source>document.jsp.jc</source>
+	</template>
+</templates>

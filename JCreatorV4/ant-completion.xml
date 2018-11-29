@@ -1,0 +1,3928 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Modified on Thursday May 12 18:08:08, 2005 -->
+<ant-codecompletion>
+	<root name="project">
+		<structure>
+			<tasks>
+					<structure>
+						<attributes>
+							<attribute name="antfile" required="false"/>
+							<attribute name="dir" required="false"/>
+							<attribute name="inheritall" required="false"/>
+							<attribute name="inheritrefs" required="false"/>
+							<attribute name="output" required="false"/>
+							<attribute name="target" required="false"/>
+						</attributes>
+						<elements>
+							<element name="reference" required="false"/>
+							<element name="property" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[Build a sub-project.
+<br><br>
+<font color="#8b0000">&nbsp;&nbsp;</font><font color="#0000ff">&lt;</font><font color="#00008b">target</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">name</font><font color="#0000ff">=</font><font color="#008080">"foo"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">depends</font><font color="#0000ff">=</font><font color="#008080">"init"</font><font color="#0000ff">&gt;</font><br>
+<font color="#8b0000">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000ff">&lt;</font><font color="#00008b">ant</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">antfile</font><font color="#0000ff">=</font><font color="#008080">"build.xml"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">target</font><font color="#0000ff">=</font><font color="#008080">"bar"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">&gt;</font><br>
+<font color="#8b0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000ff">&lt;</font><font color="#00008b">property</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">name</font><font color="#0000ff">=</font><font color="#008080">"property1"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">value</font><font color="#0000ff">=</font><font color="#008080">"aaaaa"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">/</font><font color="#0000ff">&gt;</font><br>
+<font color="#8b0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000ff">&lt;</font><font color="#00008b">property</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">name</font><font color="#0000ff">=</font><font color="#008080">"foo"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">value</font><font color="#0000ff">=</font><font color="#008080">"baz"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">/</font><font color="#0000ff">&gt;</font><br>
+<font color="#8b0000">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000ff">&lt;/</font><font color="#00008b">ant</font><font color="#0000ff">&gt;</font><br>
+<font color="#8b0000">&nbsp;&nbsp;</font><font color="#0000ff">&lt;/</font><font color="#00008b">target</font><font color="#0000ff">&gt;</font><font color="#0000ff"><br>
+<font color="#8b0000">&nbsp;&nbsp;</font><font color="#0000ff">&lt;</font><font color="#00008b">target</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">name</font><font color="#0000ff">=</font><font color="#008080">"bar"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">depends</font><font color="#0000ff">=</font><font color="#008080">"init"</font><font color="#0000ff">&gt;</font><br>
+<font color="#8b0000">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000ff">&lt;</font><font color="#00008b">echo</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">message</font><font color="#0000ff">=</font><font color="#008080">"prop&nbsp;is&nbsp;${property1}&nbsp;${foo}"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">/</font><font color="#0000ff">&gt;</font><br>
+<font color="#8b0000">&nbsp;&nbsp;</font><font color="#0000ff">&lt;/</font><font color="#00008b">target</font><font color="#0000ff">&gt;</font><br>
+<br>]]></description>
+				</task>
+				<task name="antcall">
+					<structure>
+						<attributes>
+							<attribute name="inheritall" required="false"/>
+							<attribute name="inheritrefs" required="false"/>
+							<attribute name="target" required="true"/>
+						</attributes>
+						<elements>
+							<element name="reference" required="false"/>
+							<element name="param" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[Call another target in the same project.
+<br>
+<br>
+<font color="#0000ff">&lt;</font><font color="#00008b">target</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">name</font><font color="#0000ff">=</font><font color="#008080">"foo"</font><font color="#0000ff">&gt;</font><br>
+<font color="#8b0000">&nbsp;&nbsp;</font><font color="#0000ff">&lt;</font><font color="#00008b">antcall</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">target</font><font color="#0000ff">=</font><font color="#008080">"bar"</font><font color="#0000ff">&gt;</font><br>
+<font color="#8b0000">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000ff">&lt;</font><font color="#00008b">param</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">name</font><font color="#0000ff">=</font><font color="#008080">"property1"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">value</font><font color="#0000ff">=</font><font color="#008080">"aaaaa"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">/</font><font color="#0000ff">&gt;</font><br>
+<font color="#8b0000">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000ff">&lt;</font><font color="#00008b">param</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">name</font><font color="#0000ff">=</font><font color="#008080">"foo"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">value</font><font color="#0000ff">=</font><font color="#008080">"baz"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">/</font><font color="#0000ff">&gt;</font><br>
+<font color="#8b0000">&nbsp;&nbsp;&nbsp;</font><font color="#0000ff">&lt;/</font><font color="#00008b">antcall</font><font color="#0000ff">&gt;</font><br>
+<font color="#0000ff">&lt;/</font><font color="#00008b">target</font><font color="#0000ff">&gt;</font><br>
+<font color="#0000ff">&lt;</font><font color="#00008b">target</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">name</font><font color="#0000ff">=</font><font color="#008080">"bar"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">depends</font><font color="#0000ff">=</font><font color="#008080">"init"</font><font color="#0000ff">&gt;</font><br>
+<font color="#8b0000">&nbsp;&nbsp;</font><font color="#0000ff">&lt;</font><font color="#00008b">echo</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">message</font><font color="#0000ff">=</font><font color="#008080">"prop&nbsp;is&nbsp;${property1}&nbsp;${foo}"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">/</font><font color="#0000ff">&gt;</font><br>
+<font color="#0000ff">&lt;/</font><font color="#00008b">target</font><font color="#0000ff">&gt;</font><br>
+<br>
+<br>
+This only works as expected if neither property1 nor foo are defined in the project itself.]]></description>
+				</task>
+				<task name="antlr">
+					<structure>
+						<attributes>
+							<attribute name="debug" required="false"/>
+							<attribute name="diagnostic" required="false"/>
+							<attribute name="dir" required="false"/>
+							<attribute name="glib" required="false"/>
+							<attribute name="html" required="false"/>
+							<attribute name="outputdirectory" required="false"/>
+							<attribute name="target" required="true"/>
+							<attribute name="trace" required="false"/>
+							<attribute name="tracelexer" required="false"/>
+							<attribute name="traceparser" required="false"/>
+							<attribute name="tracetreewalker" required="false"/>
+						</attributes>
+						<elements>
+							<element name="classpath" required="false"/>
+							<element name="jvmarg" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[Invokes the ANTLR Translator generator on a grammar file.]]></description>
+				</task>
+				<task name="antstructure">
+					<structure>
+						<attributes>
+							<attribute name="output" required="true"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[Creates a partial DTD for Ant from the currently known tasks.
+  ]]></description>
+				</task>
+				<task name="apply">
+					<structure>
+						<attributes>
+							<attribute name="append" required="false"/>
+							<attribute name="dest" required="false"/>
+							<attribute name="dir" required="false"/>
+							<attribute name="executable" required="true"/>
+							<attribute name="failifexecutionfails" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="newenvironment" required="false"/>
+							<attribute name="os" required="false"/>
+							<attribute name="output" required="false"/>
+							<attribute name="outputproperty" required="false"/>
+							<attribute name="parallel" required="false"/>
+							<attribute name="relative" required="false"/>
+							<attribute name="resultproperty" required="false"/>
+							<attribute name="skipemptyfilesets" required="false"/>
+							<attribute name="type" required="false"/>
+							<attribute name="vmlauncher" required="false"/>
+						</attributes>
+						<elements>
+							<element name="env" required="false"/>
+							<element name="fileset" required="false"/>
+							<element name="arg" required="false"/>
+							<element name="mapper" required="false"/>
+							<element name="srcfile" required="false"/>
+							<element name="targetfile" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[Executes a given command, supplying a set of files as arguments.
+  ]]></description>
+				</task>
+				<task name="available">
+					<structure>
+						<attributes>
+							<attribute name="classname" required="true"/>
+							<attribute name="classpath" required="false"/>
+							<attribute name="classpathref" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="filepath" required="false"/>
+							<attribute name="ignoresystemclasses" required="false"/>
+							<attribute name="property" required="true"/>
+							<attribute name="resource" required="false"/>
+							<attribute name="type" required="false"/>
+							<attribute name="value" required="false"/>
+						</attributes>
+						<elements>
+							<element name="classpath" required="false"/>
+							<element name="filepath" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[Will set the given property if the requested resource is available at runtime. This task may also be used as a condition by the condition task.]]></description>
+				</task>
+				<task name="basename">
+					<structure>
+						<attributes>
+							<attribute name="file" required="true"/>
+							<attribute name="property" required="true"/>
+							<attribute name="suffix" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[Sets a property to the base name of a specified file, optionally minus a suffix.
+
+<br>
+This task can accept the following attributes:
+
+ <ul>
+ <li>file
+
+ <li>property
+
+ <li>suffix
+
+ </ul>
+The <b>file</b> and <b>property</b> attributes are required. The <b>suffix</b> attribute can be specified either with or without the ".", and the result will be the same (ie., the returned file name will be minus the .suffix).
+
+<p>
+When this task executes, it will set the specified property to the value of the last element in the specified file. If file is a directory, the basename will be the last directory element. If file is a full-path filename, the basename will be the simple file name. If a suffix is specified, and the specified file ends in that suffix, the basename will be the simple file name without the suffix.]]></description>
+				</task>
+				<task name="blgenclient">
+					<structure>
+						<attributes>
+							<attribute name="classpath" required="false"/>
+							<attribute name="classpathref" required="false"/>
+							<attribute name="clientjar" required="false"/>
+							<attribute name="debug" required="false"/>
+							<attribute name="ejbjar" required="false"/>
+							<attribute name="mode" required="false"/>
+							<attribute name="version" required="false"/>
+						</attributes>
+						<elements>
+							<element name="classpath" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[Generates a Borland Application Server 4.5 client JAR using as input the EJB JAR file.
+
+<br>
+Two mode are available: java mode (default) and fork mode. With the fork mode, it is impossible to add classpath to the commmand line.]]></description>
+				</task>
+				<task name="buildnumber">
+					<structure>
+						<attributes>
+							<attribute name="file" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[Read, increment, and write a build number in a file 
+
+<br>
+It will first attempt to read a build number from a file, then set the property "build.number" to the value that was read in (or 0 if no such value). Then it will increment the build number by one and write it back out into the file.]]></description>
+				</task>
+				<task name="bunzip2">
+					<structure>
+						<attributes>
+							<attribute name="dest" required="false"/>
+							<attribute name="src" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[Expands a file that has been compressed with the BZIP2 algorithm. Normally used to compress non-compressed archives such as TAR files.]]></description>
+				</task>
+				<task name="bzip2">
+					<structure>
+						<attributes>
+							<attribute name="src" required="false"/>
+							<attribute name="zipfile" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[Compresses a file with the BZIP2 algorithm. Normally used to compress non-compressed archives such as TAR files.]]></description>
+				</task>
+				<task name="cab">
+					<structure>
+						<attributes>
+							<attribute name="basedir" required="true"/>
+							<attribute name="cabfile" required="true"/>
+							<attribute name="compress" required="false"/>
+							<attribute name="options" required="false"/>
+							<attribute name="verbose" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Create a CAB archive.
+  ]]></description>
+				</task>
+				<task name="cccheckin">
+					<structure>
+						<attributes>
+							<attribute name="cleartooldir" required="false"/>
+							<attribute name="comment" required="false"/>
+							<attribute name="commentfile" required="false"/>
+							<attribute name="identical" required="false"/>
+							<attribute name="keepcopy" required="false"/>
+							<attribute name="nowarn" required="false"/>
+							<attribute name="preservetime" required="false"/>
+							<attribute name="viewpath" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Performs ClearCase checkin.
+
+  ]]></description>
+				</task>
+				<task name="cccheckout">
+					<structure>
+						<attributes>
+							<attribute name="branch" required="false"/>
+							<attribute name="cleartooldir" required="false"/>
+							<attribute name="comment" required="false"/>
+							<attribute name="commentfile" required="false"/>
+							<attribute name="nodata" required="false"/>
+							<attribute name="nowarn" required="false"/>
+							<attribute name="out" required="false"/>
+							<attribute name="reserved" required="false"/>
+							<attribute name="version" required="false"/>
+							<attribute name="viewpath" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Performs ClearCase checkout.
+  ]]></description>
+				</task>
+				<task name="ccmcheckin">
+					<structure>
+						<attributes>
+							<attribute name="ccmdir" required="false"/>
+							<attribute name="comment" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="task" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Performs Continuus checkin command.
+  ]]></description>
+				</task>
+				<task name="ccmcheckintask">
+					<structure>
+						<attributes>
+							<attribute name="ccmdir" required="false"/>
+							<attribute name="comment" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="task" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Performs Continuus Checkin Default task command.
+  ]]></description>
+				</task>
+				<task name="ccmcheckout">
+					<structure>
+						<attributes>
+							<attribute name="ccmdir" required="false"/>
+							<attribute name="comment" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="task" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Performs Continuus checkout command.
+  ]]></description>
+				</task>
+				<task name="ccmcreatetask">
+					<structure>
+						<attributes>
+							<attribute name="ccmdir" required="false"/>
+							<attribute name="comment" required="false"/>
+							<attribute name="platform" required="false"/>
+							<attribute name="release" required="false"/>
+							<attribute name="resolver" required="false"/>
+							<attribute name="subsystem" required="false"/>
+							<attribute name="task" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Creates new Continuus ccm task and sets it as the default
+  ]]></description>
+				</task>
+				<task name="ccmreconfigure">
+					<structure>
+						<attributes>
+							<attribute name="ccmdir" required="false"/>
+							<attribute name="ccmproject" required="false"/>
+							<attribute name="recurse" required="false"/>
+							<attribute name="verbose" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Task allows to reconfigure a project, recurcively or not
+  ]]></description>
+				</task>
+				<task name="ccuncheckout">
+					<structure>
+						<attributes>
+							<attribute name="cleartooldir" required="false"/>
+							<attribute name="keepcopy" required="false"/>
+							<attribute name="viewpath" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[Performs ClearCase UnCheckout command.
+
+<br>
+ <p>
+ The following attributes are interpretted:
+
+ <table border="1">
+   <tr>
+     <th>Attribute</th>
+     <th>Values</th>
+     <th>Required</th>
+   </tr>
+   <tr>
+      <td>viewpath</td>
+      <td>Path to the ClearCase view file or directory that the command will operate on</td>
+      <td>No</td>
+   <tr>
+   <tr>
+      <td>keepcopy</td>
+      <td>Specifies whether to keep a copy of the file with a .keep extension or not</td>
+      <td>No</td>
+   <tr>
+ </table>]]></description>
+				</task>
+				<task name="ccupdate">
+					<structure>
+						<attributes>
+							<attribute name="cleartooldir" required="false"/>
+							<attribute name="currenttime" required="false"/>
+							<attribute name="graphical" required="false"/>
+							<attribute name="log" required="false"/>
+							<attribute name="overwrite" required="false"/>
+							<attribute name="preservetime" required="false"/>
+							<attribute name="rename" required="false"/>
+							<attribute name="viewpath" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Performs a ClearCase Update command.
+  ]]></description>
+				</task>
+				<task name="checksum">
+					<structure>
+						<attributes>
+							<attribute name="algorithm" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="fileext" required="false"/>
+							<attribute name="forceoverwrite" required="false"/>
+							<attribute name="property" required="false"/>
+							<attribute name="provider" required="false"/>
+							<attribute name="readbuffersize" required="false"/>
+							<attribute name="verifyproperty" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Used to create or verify file checksums.
+  ]]></description>
+				</task>
+				<task name="chmod">
+					<structure>
+						<attributes>
+							<attribute name="append" required="false"/>
+							<attribute name="defaultexcludes" required="false"/>
+							<attribute name="dest" required="false"/>
+							<attribute name="dir" required="false"/>
+							<attribute name="excludes" required="false"/>
+							<attribute name="executable" required="false"/>
+							<attribute name="failifexecutionfails" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="includes" required="false"/>
+							<attribute name="newenvironment" required="false"/>
+							<attribute name="os" required="false"/>
+							<attribute name="output" required="false"/>
+							<attribute name="outputproperty" required="false"/>
+							<attribute name="parallel" required="false"/>
+							<attribute name="perm" required="true"/>
+							<attribute name="relative" required="false"/>
+							<attribute name="resultproperty" required="false"/>
+							<attribute name="skipemptyfilesets" required="false"/>
+							<attribute name="type" required="false"/>
+							<attribute name="vmlauncher" required="false"/>
+						</attributes>
+						<elements>
+							<element name="env" required="false"/>
+							<element name="fileset" required="false"/>
+							<element name="arg" required="false"/>
+							<element name="exclude" required="false"/>
+							<element name="include" required="false"/>
+							<element name="mapper" required="false"/>
+							<element name="patternset" required="false"/>
+							<element name="srcfile" required="false"/>
+							<element name="targetfile" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Chmod equivalent for unix-like environments.
+  ]]></description>
+				</task>
+				<task name="concat">
+					<structure>
+						<attributes>
+							<attribute name="append" required="false"/>
+							<attribute name="destfile" required="false"/>
+							<attribute name="encoding" required="false"/>
+						</attributes>
+						<elements>
+							<element name="filelist" required="false"/>
+							<element name="fileset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    This class contains the 'concat' task, used to concatenate a series
+ of files into a single stream. The destination of this stream may
+ be the system console, or a file. The following is a sample
+ invocation:
+
+ <pre>
+ <concat destfile="${build.dir}/index.xml"
+   append="false">
+   <fileset dir="${xml.root.dir}"
+     includes="*.xml" />
+ </concat>
+ </pre>
+  ]]></description>
+				</task>
+				<task name="condition">
+					<structure>
+						<attributes>
+							<attribute name="property" required="true"/>
+							<attribute name="value" required="false"/>
+						</attributes>
+						<elements>
+							<element name="and" required="false"/>
+							<element name="available" required="false"/>
+							<element name="checksum" required="false"/>
+							<element name="contains" required="false"/>
+							<element name="equals" required="false"/>
+							<element name="filesmatch" required="false"/>
+							<element name="http" required="false"/>
+							<element name="isfalse" required="false"/>
+							<element name="isset" required="false"/>
+							<element name="istrue" required="false"/>
+							<element name="not" required="false"/>
+							<element name="or" required="false"/>
+							<element name="os" required="false"/>
+							<element name="socket" required="false"/>
+							<element name="uptodate" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[Task to set a property conditionally using <font color="#0000ff">&lt;</font><font color="#00008b">uptodate</font><font color="#0000ff">&gt;</font><font color="#8b0000">,&nbsp;</font><font color="#0000ff">&lt;</font><font color="#00008b">available</font><font color="#0000ff">&gt;</font>, and many other supported conditions.
+
+
+
+ <p>This task supports boolean logic as well as pluggable conditions
+
+
+
+ to decide, whether a property should be set.</p>
+ <p>This task does not extend Task to take advantage of
+
+
+
+ ConditionBase.</p>]]></description>
+				</task>
+				<task name="copy">
+					<structure>
+						<attributes>
+							<attribute name="encoding" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="filtering" required="false"/>
+							<attribute name="flatten" required="false"/>
+							<attribute name="includeemptydirs" required="false"/>
+							<attribute name="overwrite" required="false"/>
+							<attribute name="preservelastmodified" required="false"/>
+							<attribute name="todir" required="false"/>
+							<attribute name="tofile" required="false"/>
+							<attribute name="verbose" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+							<element name="filterchain" required="false"/>
+							<element name="filterset" required="false"/>
+							<element name="mapper" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Copies a file or directory to a new file
+ or directory.  Files are only copied if the source file is newer
+ than the destination file, or when the destination file does not
+ exist.  It is possible to explicitly overwrite existing files.</p>
+ <p>This implementation is based on Arnout Kuiper's initial design
+ document, the following mailing list discussions, and the
+ copyfile/copydir tasks.</p>
+  ]]></description>
+				</task>
+				<task name="copydir">
+					<structure>
+						<attributes>
+							<attribute name="dest" required="true"/>
+							<attribute name="filtering" required="false"/>
+							<attribute name="flatten" required="false"/>
+							<attribute name="forceoverwrite" required="false"/>
+							<attribute name="src" required="true"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Copies a directory.
+  ]]></description>
+				</task>
+				<task name="copyfile">
+					<structure>
+						<attributes>
+							<attribute name="dest" required="true"/>
+							<attribute name="filtering" required="false"/>
+							<attribute name="forceoverwrite" required="false"/>
+							<attribute name="src" required="true"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Copies a file.
+  ]]></description>
+				</task>
+				<task name="csc">
+					<structure>
+						<attributes>
+							<attribute name="additionalmodules" required="false"/>
+							<attribute name="debug" required="false"/>
+							<attribute name="definitions" required="false"/>
+							<attribute name="destdir" required="false"/>
+							<attribute name="destfile" required="false"/>
+							<attribute name="docfile" required="false"/>
+							<attribute name="extraoptions" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="filealign" required="false"/>
+							<attribute name="fullpaths" required="false"/>
+							<attribute name="includedefaultreferences" required="false"/>
+							<attribute name="incremental" required="false"/>
+							<attribute name="mainclass" required="false"/>
+							<attribute name="noconfig" required="false"/>
+							<attribute name="optimize" required="false"/>
+							<attribute name="outputfile" required="false"/>
+							<attribute name="referencefiles" required="false"/>
+							<attribute name="references" required="false"/>
+							<attribute name="srcdir" required="false"/>
+							<attribute name="targettype" required="false"/>
+							<attribute name="unsafe" required="false"/>
+							<attribute name="utf8output" required="false"/>
+							<attribute name="warnlevel" required="false"/>
+							<attribute name="win32icon" required="false"/>
+							<attribute name="win32res" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Compiles C# source into executables or modules.
+
+  The task will only work on win2K until other platforms support
+  csc.exe or an equivalent. CSC.exe must be on the execute path too. <p>
+  All parameters are optional: <csc/> should suffice to produce a debug
+  build of all *.cs files. References to external files do require explicit
+  enumeration, so are one of the first attributes to consider adding. <p>
+  The task is a directory based task, so attributes like <b>includes="*.cs"
+  </b> and <b>excludes="broken.cs"</b> can be used to control the files pulled
+  in. By default, all *.cs files from the project folder down are included in
+  the command. When this happens the output file -if not specified- is taken
+  as the first file in the list, which may be somewhat hard to control.
+  Specifying the output file with <b>'outfile'</b> seems prudent. <p>
+  ]]></description>
+				</task>
+				<task name="cvs">
+					<structure>
+						<attributes>
+							<attribute name="append" required="false"/>
+							<attribute name="command" required="false"/>
+							<attribute name="compression" required="false"/>
+							<attribute name="compressionlevel" required="false"/>
+							<attribute name="cvsroot" required="false"/>
+							<attribute name="cvsrsh" required="false"/>
+							<attribute name="date" required="false"/>
+							<attribute name="dest" required="false"/>
+							<attribute name="error" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="noexec" required="false"/>
+							<attribute name="output" required="false"/>
+							<attribute name="package" required="false"/>
+							<attribute name="passfile" required="false"/>
+							<attribute name="port" required="false"/>
+							<attribute name="quiet" required="false"/>
+							<attribute name="tag" required="false"/>
+						</attributes>
+						<elements>
+							<element name="commandline" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Performs operations on a CVS repository.
+
+ original 1.20
+
+  NOTE: This implementation has been moved to AbstractCvsTask with
+  the addition of some accessors for extensibility.
+  ]]></description>
+				</task>
+				<task name="cvschangelog">
+					<structure>
+						<attributes>
+							<attribute name="daysinpast" required="false"/>
+							<attribute name="destfile" required="false"/>
+							<attribute name="dir" required="false"/>
+							<attribute name="end" required="false"/>
+							<attribute name="start" required="false"/>
+							<attribute name="usersfile" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+							<element name="user" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[Examines the output of cvs log and group related changes together. It produces an XML output representing the list of changes.]]></description>
+				</task>
+				<task name="cvspass">
+					<structure>
+						<attributes>
+							<attribute name="cvsroot" required="true"/>
+							<attribute name="passfile" required="false"/>
+							<attribute name="password" required="true"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Adds an new entry to a CVS password file.
+  ]]></description>
+				</task>
+				<task name="cvstagdiff">
+					<structure>
+						<attributes>
+							<attribute name="compression" required="false"/>
+							<attribute name="compressionlevel" required="false"/>
+							<attribute name="cvsroot" required="false"/>
+							<attribute name="cvsrsh" required="false"/>
+							<attribute name="destfile" required="true"/>
+							<attribute name="enddate" required="false"/>
+							<attribute name="endtag" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="package" required="false"/>
+							<attribute name="passfile" required="false"/>
+							<attribute name="port" required="false"/>
+							<attribute name="quiet" required="false"/>
+							<attribute name="startdate" required="false"/>
+							<attribute name="starttag" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[Examines the output of cvs rdiff between two tags.
+
+
+
+ It produces an XML output representing the list of changes.
+
+ <p>
+<font color="#8b0000">&nbsp;</font><font color="#007f00">&lt;!--&nbsp;Root&nbsp;element&nbsp;--&gt;</font><font color="#8b0000"></font><br>
+<font color="#8b0000">&nbsp;ELEMENT&nbsp;</font><font color="#8b0000">tagdiff</font><font color="#8b0000">&nbsp;(&nbsp;entry+&nbsp;)&nbsp;&gt;</font><br>
+<font color="#8b0000">&nbsp;</font><font color="#007f00">&lt;!--&nbsp;Start&nbsp;tag&nbsp;of&nbsp;the&nbsp;report&nbsp;--&gt;</font><font color="#8b0000"></font><br>
+<font color="#8b0000">&nbsp;ATTLIST&nbsp;tagdiff&nbsp;startTag&nbsp;NMTOKEN&nbsp;#IMPLIED&nbsp;&gt;</font><br>
+<font color="#8b0000">&nbsp;</font><font color="#007f00">&lt;!--&nbsp;End&nbsp;tag&nbsp;of&nbsp;the&nbsp;report&nbsp;--&gt;</font><font color="#8b0000"></font><br>
+<font color="#8b0000">&nbsp;ATTLIST&nbsp;tagdiff&nbsp;endTag&nbsp;NMTOKEN&nbsp;#IMPLIED&nbsp;&gt;</font><br>
+<font color="#8b0000">&nbsp;</font><font color="#007f00">&lt;!--&nbsp;Start&nbsp;date&nbsp;of&nbsp;the&nbsp;report&nbsp;--&gt;</font><font color="#8b0000"></font><br>
+<font color="#8b0000">&nbsp;ATTLIST&nbsp;tagdiff&nbsp;startDate&nbsp;NMTOKEN&nbsp;#IMPLIED&nbsp;&gt;</font><br>
+<font color="#8b0000">&nbsp;</font><font color="#007f00">&lt;!--&nbsp;End&nbsp;date&nbsp;of&nbsp;the&nbsp;report&nbsp;--&gt;</font><font color="#8b0000"></font><br>
+<font color="#8b0000">&nbsp;ATTLIST&nbsp;tagdiff&nbsp;endDate&nbsp;NMTOKEN&nbsp;#IMPLIED&nbsp;&gt;</font><br>
+<font color="#8b0000">&nbsp;</font><font color="#007f00">&lt;!--&nbsp;CVS&nbsp;tag&nbsp;entry&nbsp;--&gt;</font><font color="#8b0000"></font><br>
+<font color="#8b0000">&nbsp;ELEMENT&nbsp;</font><font color="#8b0000">entry</font><font color="#8b0000">&nbsp;(&nbsp;file&nbsp;)&nbsp;&gt;</font><br>
+<font color="#8b0000">&nbsp;</font><font color="#007f00">&lt;!--&nbsp;File&nbsp;added,&nbsp;changed&nbsp;or&nbsp;removed&nbsp;--&gt;</font><font color="#8b0000"></font><br>
+<font color="#8b0000">&nbsp;ELEMENT&nbsp;</font><font color="#8b0000">file</font><font color="#8b0000">&nbsp;(&nbsp;name,&nbsp;revision?,&nbsp;prevrevision?&nbsp;)&nbsp;&gt;</font><br>
+<font color="#8b0000">&nbsp;</font><font color="#007f00">&lt;!--&nbsp;Name&nbsp;of&nbsp;the&nbsp;file&nbsp;--&gt;</font><font color="#8b0000"></font><br>
+<font color="#8b0000">&nbsp;ELEMENT&nbsp;</font><font color="#8b0000">name</font><font color="#8b0000">&nbsp;(&nbsp;#PCDATA&nbsp;)&nbsp;&gt;</font><br>
+<font color="#8b0000">&nbsp;</font><font color="#007f00">&lt;!--&nbsp;Revision&nbsp;number&nbsp;--&gt;</font><font color="#8b0000"></font><br>
+<font color="#8b0000">&nbsp;ELEMENT&nbsp;</font><font color="#8b0000">revision</font><font color="#8b0000">&nbsp;(&nbsp;#PCDATA&nbsp;)&nbsp;&gt;</font><br>
+<font color="#8b0000">&nbsp;</font><font color="#007f00">&lt;!--&nbsp;Previous&nbsp;revision&nbsp;number&nbsp;--&gt;</font><font color="#8b0000"></font><br>
+<font color="#8b0000">&nbsp;ELEMENT&nbsp;</font><font color="#8b0000">prevrevision</font><font color="#8b0000">&nbsp;(&nbsp;#PCDATA&nbsp;)&nbsp;&gt;</font><br>
+<font color="#8b0000">&nbsp;</font><br>
+]]></description>
+				</task>
+				<task name="ddcreator">
+					<structure>
+						<attributes>
+							<attribute name="classpath" required="false"/>
+							<attribute name="descriptors" required="false"/>
+							<attribute name="dest" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Builds a serialized deployment descriptor given a text file description of the
+ descriptor in the format supported by WebLogic.
+
+ This ant task is a front end for the weblogic DDCreator tool.
+  ]]></description>
+				</task>
+				<task name="delete">
+					<structure>
+						<attributes>
+							<attribute name="defaultexcludes" required="false"/>
+							<attribute name="dir" required="false"/>
+							<attribute name="excludes" required="false"/>
+							<attribute name="excludesfile" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="includeemptydirs" required="false"/>
+							<attribute name="includes" required="false"/>
+							<attribute name="includesfile" required="false"/>
+							<attribute name="quiet" required="false"/>
+							<attribute name="verbose" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+							<element name="exclude" required="false"/>
+							<element name="excludesfile" required="false"/>
+							<element name="include" required="false"/>
+							<element name="includesfile" required="false"/>
+							<element name="patternset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Deletes a file or directory, or set of files defined by a fileset.
+ The original delete task would delete a file, or a set of files 
+ using the include/exclude syntax.  The deltree task would delete a 
+ directory tree.  This task combines the functionality of these two
+ originally distinct tasks.
+ <p>Currently Delete extends MatchingTask.  This is intend <i>only</i>
+ to provide backwards compatibility for a release.  The future position
+ is to use nested filesets exclusively.</p>
+  ]]></description>
+				</task>
+				<task name="deltree">
+					<structure>
+						<attributes>
+							<attribute name="dir" required="true"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    
+  ]]></description>
+				</task>
+				<task name="depend">
+					<structure>
+						<attributes>
+							<attribute name="cache" required="false"/>
+							<attribute name="classpath" required="false"/>
+							<attribute name="classpathref" required="false"/>
+							<attribute name="closure" required="false"/>
+							<attribute name="destdir" required="false"/>
+							<attribute name="dump" required="false"/>
+							<attribute name="srcdir" required="true"/>
+						</attributes>
+						<elements>
+							<element name="classpath" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Generates a dependency file for a given set of classes.
+  ]]></description>
+				</task>
+				<task name="dependset">
+					<structure>
+						<elements>
+							<element name="srcfilelist" required="false"/>
+							<element name="srcfileset" required="false"/>
+							<element name="targetfilelist" required="false"/>
+							<element name="targetfileset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Examines and removes out of date target files.  If any of the target files
+ are out of date with respect to any of the source files, all target
+ files are removed.  This is useful where dependencies cannot be
+ computed (for example, dynamically interpreted parameters or files
+ that need to stay in synch but are not directly linked) or where
+ the ant task in question could compute them but does not (for
+ example, the linked DTD for an XML file using the style task).
+  ]]></description>
+				</task>
+				<task name="dirname">
+					<structure>
+						<attributes>
+							<attribute name="file" required="true"/>
+							<attribute name="property" required="true"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Determines the directory name of the specified file.
+
+ This task can accept the following attributes:
+ <ul>
+ <li>file
+ <li>property
+ </ul>
+ Both <b>file</b> and <b>property</b> are required.
+ <p>
+ When this task executes, it will set the specified property to the
+ value of the specified file up to, but not including, the last path
+ element. If file is a file, the directory will be the current
+ directory.
+  ]]></description>
+				</task>
+				<task name="ear">
+					<structure>
+						<attributes>
+							<attribute name="appxml" required="false"/>
+							<attribute name="basedir" required="false"/>
+							<attribute name="compress" required="false"/>
+							<attribute name="destfile" required="true"/>
+							<attribute name="duplicate" required="false"/>
+							<attribute name="encoding" required="false"/>
+							<attribute name="filesonly" required="false"/>
+							<attribute name="index" required="false"/>
+							<attribute name="manifest" required="false"/>
+							<attribute name="update" required="false"/>
+							<attribute name="whenempty" required="false"/>
+						</attributes>
+						<elements>
+							<element name="archives" required="false"/>
+							<element name="manifest" required="false"/>
+							<element name="fileset" required="false"/>
+							<element name="metainf" required="false"/>
+							<element name="zipgroupfileset" required="false"/>
+							<element name="zipfileset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Creates a EAR archive. Based on WAR task
+  ]]></description>
+				</task>
+				<task name="echo">
+					<structure>
+						<attributes>
+							<attribute name="append" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="level" required="false"/>
+							<attribute name="message" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Writes a message to the Ant logging facilities.
+  ]]></description>
+				</task>
+				<task name="echoproperties">
+					<structure>
+						<attributes>
+							<attribute name="destfile" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="prefix" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[Displays all the current properties in the build. The output can be sent to
+
+
+
+  a file if desired. <P>
+  Attribute "destfile" defines a file to send the properties to. This can be
+
+
+
+  processed as a standard property file later. <P>
+  Attribute "prefix" defines a prefix which is used to filter the properties
+
+
+
+  only those properties starting with this prefix will be echoed. <P>
+  By default, the "failonerror" attribute is enabled. If an error occurs while
+
+
+
+  writing the properties to a file, and this attribute is enabled, then a
+
+
+
+  BuildException will be thrown. If disabled, then IO errors will be reported
+
+
+
+  as a log statement, but no error will be thrown. <P>
+  Examples: 
+
+
+
+  <p>
+  <font color="#8b0000">&nbsp;&nbsp;</font><font color="#0000ff">&lt;</font><font color="#00008b">echoproperties</font><font color="#ff00ff">&nbsp;&nbsp;</font><font color="#0000ff">/</font><font color="#0000ff">&gt;</font>
+<br>
+  Report the current properties to the log. <P>
+  <p>
+  <font color="#8b0000">&nbsp;&nbsp;</font><font color="#0000ff">&lt;</font><font color="#00008b">echoproperties</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">destfile</font><font color="#0000ff">=</font><font color="#008080">"my.properties"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">/</font><font color="#0000ff">&gt;</font>
+  <br>
+  Report the current properties to the file "my.properties", and will
+
+
+
+  fail the build if the file could not be created or written to. <P>
+  <p>
+<font color="#8b0000">&nbsp;&nbsp;</font><font color="#0000ff">&lt;</font><font color="#00008b">echoproperties</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">destfile</font><font color="#0000ff">=</font><font color="#008080">"my.properties"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">failonerror</font><font color="#0000ff">=</font><font color="#008080">"false"</font><font color="#ff00ff"></font><br>
+<font color="#ff00ff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000ff">prefix</font><font color="#0000ff">=</font><font color="#008080">"ant"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">/</font><font color="#0000ff">&gt;</font>
+<br>
+  Report all properties beginning with 'ant' to the file
+
+
+
+  "my.properties", and will log a message if the file could not be created or
+
+
+
+  written to, but will still allow the build to continue.]]></description>
+				</task>
+				<task name="ejbc">
+					<structure>
+						<attributes>
+							<attribute name="classpath" required="false"/>
+							<attribute name="descriptors" required="false"/>
+							<attribute name="dest" required="false"/>
+							<attribute name="keepgenerated" required="false"/>
+							<attribute name="manifest" required="false"/>
+							<attribute name="src" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Builds EJB support classes using WebLogic's ejbc tool from a directory containing
+ a set of deployment descriptors.
+  ]]></description>
+				</task>
+				<task name="ejbjar">
+					<structure>
+						<attributes>
+							<attribute name="basejarname" required="false"/>
+							<attribute name="basenameterminator" required="false"/>
+							<attribute name="classpath" required="false"/>
+							<attribute name="dependency" required="false"/>
+							<attribute name="descriptordir" required="false"/>
+							<attribute name="destdir" required="false"/>
+							<attribute name="flatdestdir" required="false"/>
+							<attribute name="genericjarsuffix" required="false"/>
+							<attribute name="manifest" required="false"/>
+							<attribute name="naming" required="false"/>
+							<attribute name="srcdir" required="false"/>
+						</attributes>
+						<elements>
+							<element name="borland" required="false"/>
+							<element name="classpath" required="false"/>
+							<element name="dtd" required="false"/>
+							<element name="iplanet" required="false"/>
+							<element name="jboss" required="false"/>
+							<element name="jonas" required="false"/>
+							<element name="support" required="false"/>
+							<element name="weblogic" required="false"/>
+							<element name="weblogictoplink" required="false"/>
+							<element name="websphere" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Provides automated EJB JAR file creation.
+ <p>
+ Extends the
+ MatchingTask class provided in the default ant distribution to provide a
+ directory scanning EJB jarfile generator.
+ </p>
+ <p>
+ The task works by taking the deployment descriptors one at a time and
+ parsing them to locate the names of the classes which should be placed in
+ the jar. The classnames are translated to java.io.Files by replacing
+ periods with File.separatorChar and resolving the generated filename as a
+ relative path under the srcDir attribute. All necessary files are then
+ assembled into a jarfile. One jarfile is constructed for each deployment
+ descriptor found.
+ </p>
+  ]]></description>
+				</task>
+				<task name="exec">
+					<structure>
+						<attributes>
+							<attribute name="append" required="false"/>
+							<attribute name="dir" required="false"/>
+							<attribute name="executable" required="false"/>
+							<attribute name="failifexecutionfails" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="newenvironment" required="false"/>
+							<attribute name="os" required="false"/>
+							<attribute name="output" required="false"/>
+							<attribute name="outputproperty" required="false"/>
+							<attribute name="resultproperty" required="false"/>
+							<attribute name="vmlauncher" required="false"/>
+						</attributes>
+						<elements>
+							<element name="env" required="false"/>
+							<element name="arg" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Executes a given command if the os platform is appropriate.
+  ]]></description>
+				</task>
+				<task name="fail">
+					<structure>
+						<attributes>
+							<attribute name="if" required="false"/>
+							<attribute name="message" required="false"/>
+							<attribute name="unless" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Exits the active build, giving an additional message
+ if available.
+  ]]></description>
+				</task>
+				<task name="filter">
+					<structure>
+						<attributes>
+							<attribute name="filtersfile" required="false"/>
+							<attribute name="token" required="false"/>
+							<attribute name="value" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Sets a token filter that is used by the file copy tasks
+ to do token substitution. Sets mutiple tokens by
+ reading these from a file.
+  ]]></description>
+				</task>
+				<task name="fixcrlf">
+					<structure>
+						<attributes>
+							<attribute name="destdir" required="false"/>
+							<attribute name="encoding" required="false"/>
+							<attribute name="eof" required="false"/>
+							<attribute name="eol" required="false"/>
+							<attribute name="javafiles" required="false"/>
+							<attribute name="srcdir" required="true"/>
+							<attribute name="tab" required="false"/>
+							<attribute name="tablength" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Converts text source files to local OS formatting conventions, as
+ well as repair text files damaged by misconfigured or misguided editors or
+ file transfer programs.
+  ]]></description>
+				</task>
+				<task name="ftp">
+					<structure>
+						<attributes>
+							<attribute name="action" required="false"/>
+							<attribute name="binary" required="false"/>
+							<attribute name="chmod" required="false"/>
+							<attribute name="depends" required="false"/>
+							<attribute name="ignorenoncriticalerrors" required="false"/>
+							<attribute name="listing" required="false"/>
+							<attribute name="newer" required="false"/>
+							<attribute name="passive" required="false"/>
+							<attribute name="password" required="true"/>
+							<attribute name="port" required="false"/>
+							<attribute name="remotedir" required="false"/>
+							<attribute name="separator" required="false"/>
+							<attribute name="server" required="true"/>
+							<attribute name="skipfailedtransfers" required="false"/>
+							<attribute name="umask" required="false"/>
+							<attribute name="userid" required="true"/>
+							<attribute name="verbose" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Basic FTP client. Performs the following actions:
+ <ul>
+   <li> <strong>send</strong> - send files to a remote server. This is the
+   default action.</li>
+   <li> <strong>get</strong> - retrive files from a remote server.</li>
+   <li> <strong>del</strong> - delete files from a remote server.</li>
+   <li> <strong>list</strong> - create a file listing.</li>
+   <li> <strong>chmod</strong> - change unix file permissions.</li>
+ </ul>
+ <strong>Note:</strong> Some FTP servers - notably the Solaris server - seem
+ to hold data ports open after a "retr" operation, allowing them to timeout
+ instead of shutting them down cleanly. This happens in active or passive
+ mode, and the ports will remain open even after ending the FTP session. FTP
+ "send" operations seem to close ports immediately. This behavior may cause
+ problems on some systems when downloading large sets of files.
+  ]]></description>
+				</task>
+				<task name="genkey">
+					<structure>
+						<attributes>
+							<attribute name="alias" required="false"/>
+							<attribute name="dname" required="false"/>
+							<attribute name="keyalg" required="false"/>
+							<attribute name="keypass" required="false"/>
+							<attribute name="keysize" required="false"/>
+							<attribute name="keystore" required="false"/>
+							<attribute name="sigalg" required="false"/>
+							<attribute name="storepass" required="false"/>
+							<attribute name="storetype" required="false"/>
+							<attribute name="validity" required="false"/>
+							<attribute name="verbose" required="false"/>
+						</attributes>
+						<elements>
+							<element name="dname" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Generates a key in a keystore.
+  ]]></description>
+				</task>
+				<task name="get">
+					<structure>
+						<attributes>
+							<attribute name="dest" required="true"/>
+							<attribute name="ignoreerrors" required="false"/>
+							<attribute name="password" required="false"/>
+							<attribute name="src" required="true"/>
+							<attribute name="usetimestamp" required="false"/>
+							<attribute name="username" required="false"/>
+							<attribute name="verbose" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Gets a particular file from a URL source.
+ Options include verbose reporting, timestamp based fetches and controlling
+ actions on failures. NB: access through a firewall only works if the whole
+ Java runtime is correctly configured.
+  ]]></description>
+				</task>
+				<task name="gunzip">
+					<structure>
+						<attributes>
+							<attribute name="dest" required="false"/>
+							<attribute name="src" required="true"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Expands a file that has been compressed with the GZIP
+ algorithm. Normally used to compress non-compressed archives such
+ as TAR files.
+  ]]></description>
+				</task>
+				<task name="gzip">
+					<structure>
+						<attributes>
+							<attribute name="src" required="false"/>
+							<attribute name="zipfile" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Compresses a file with the GZIP algorithm. Normally used to compress
+ non-compressed archives such as TAR files.
+  ]]></description>
+				</task>
+				<task name="icontract">
+					<structure>
+						<attributes>
+							<attribute name="builddir" required="false"/>
+							<attribute name="classdir" required="false"/>
+							<attribute name="classpath" required="false"/>
+							<attribute name="classpathref" required="false"/>
+							<attribute name="controlfile" required="false"/>
+							<attribute name="failthrowable" required="false"/>
+							<attribute name="instrumentdir" required="true"/>
+							<attribute name="invariant" required="false"/>
+							<attribute name="post" required="false"/>
+							<attribute name="pre" required="false"/>
+							<attribute name="quiet" required="false"/>
+							<attribute name="repbuilddir" required="false"/>
+							<attribute name="repositorydir" required="true"/>
+							<attribute name="srcdir" required="true"/>
+							<attribute name="targets" required="false"/>
+							<attribute name="updateicontrol" required="false"/>
+							<attribute name="verbosity" required="false"/>
+						</attributes>
+						<elements>
+							<element name="classpath" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Instruments Java classes with iContract DBC preprocessor.
+ <br/>
+ The task can generate a properties file for iControl,
+ a graphical user interface that lets you turn on/off assertions. iControl generates a control file that you can refer to
+ from this task using the controlfile attribute.
+ iContract is at http://www.reliable-systems.com/tools/
+ <p/>
+ Thanks to Rainer Schmitz for enhancements and comments.
+  ]]></description>
+				</task>
+				<task name="ilasm">
+					<structure>
+						<attributes>
+							<attribute name="debug" required="false"/>
+							<attribute name="extraoptions" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="keyfile" required="false"/>
+							<attribute name="listing" required="false"/>
+							<attribute name="outputfile" required="false"/>
+							<attribute name="resourcefile" required="false"/>
+							<attribute name="srcdir" required="false"/>
+							<attribute name="targettype" required="false"/>
+							<attribute name="verbose" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Assembles .NET Intermediate Language files. The task will only work
+  on win2K until other platforms support csc.exe or an equivalent. ilasm.exe
+  must be on the execute path too. <p>
+  <p>
+  All parameters are optional: <il/> should suffice to produce a debug
+  build of all *.il files. The option set is roughly compatible with the
+  CSharp class; even though the command line options are only vaguely
+  equivalent. [The low level commands take things like /OUT=file, csc wants
+  /out:file ... /verbose is used some places; /quiet here in ildasm... etc.]
+  It would be nice if someone made all the command line tools consistent (and
+  not as brittle as the java cmdline tools) <p>
+  The task is a directory based task, so attributes like <b>includes="*.il"
+  </b> and <b>excludes="broken.il"</b> can be used to control the files pulled
+  in. Each file is built on its own, producing an appropriately named output
+  file unless manually specified with <b>outfile</b>
+  ]]></description>
+				</task>
+				<task name="input">
+					<structure>
+						<attributes>
+							<attribute name="addproperty" required="false"/>
+							<attribute name="message" required="false"/>
+							<attribute name="validargs" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Reads an input line from the console.
+  ]]></description>
+				</task>
+				<task name="iplanet-ejbc">
+					<structure>
+						<attributes>
+							<attribute name="classpath" required="false"/>
+							<attribute name="debug" required="false"/>
+							<attribute name="dest" required="false"/>
+							<attribute name="ejbdescriptor" required="false"/>
+							<attribute name="iasdescriptor" required="false"/>
+							<attribute name="iashome" required="false"/>
+							<attribute name="keepgenerated" required="false"/>
+						</attributes>
+						<elements>
+							<element name="classpath" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Compiles EJB stubs and skeletons for the iPlanet Application Server.
+ The EJBs to be processed are specified by the EJB 1.1 standard XML
+ descriptor, and additional attributes are obtained from the iPlanet Application
+ Server-specific XML descriptor.  Since the XML descriptors can include
+ multiple EJBs, this is a convenient way of specifying many EJBs in a single
+ Ant task.
+  ]]></description>
+				</task>
+				<task name="jar">
+					<structure>
+						<attributes>
+							<attribute name="basedir" required="false"/>
+							<attribute name="compress" required="false"/>
+							<attribute name="destfile" required="true"/>
+							<attribute name="duplicate" required="false"/>
+							<attribute name="encoding" required="false"/>
+							<attribute name="filesonly" required="false"/>
+							<attribute name="index" required="false"/>
+							<attribute name="manifest" required="false"/>
+							<attribute name="update" required="false"/>
+							<attribute name="whenempty" required="false"/>
+						</attributes>
+						<elements>
+							<element name="manifest" required="false"/>
+							<element name="fileset" required="false"/>
+							<element name="metainf" required="false"/>
+							<element name="zipgroupfileset" required="false"/>
+							<element name="zipfileset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Creates a JAR archive.
+  ]]></description>
+				</task>
+				<task name="jarlib-available">
+					<structure>
+						<attributes>
+							<attribute name="file" required="false"/>
+							<attribute name="property" required="true"/>
+						</attributes>
+						<elements>
+							<element name="extension" required="false"/>
+							<element name="extensionset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Checks whether an extension is present in a fileset or an extensionSet.
+  ]]></description>
+				</task>
+				<task name="jarlib-display">
+					<structure>
+						<attributes>
+							<attribute name="file" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Displays the "Optional Package" and "Package Specification" information
+ contained within the specified JARs.
+
+ <p>Prior to JDK1.3, an "Optional Package" was known as an Extension.
+ The specification for this mechanism is available in the JDK1.3
+ documentation in the directory
+ $JDK_HOME/docs/guide/extensions/versioning.html. Alternatively it is
+ available online at http://java.sun.com/j2se/1.3/docs/guide/extensions/versioning.html.</p>
+  ]]></description>
+				</task>
+				<task name="jarlib-manifest">
+					<structure>
+						<attributes>
+							<attribute name="destfile" required="false"/>
+						</attributes>
+						<elements>
+							<element name="attribute" required="false"/>
+							<element name="depends" required="false"/>
+							<element name="extension" required="false"/>
+							<element name="options" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Generates a manifest that declares all the dependencies.
+ The dependencies are determined by looking in the
+ specified path and searching for Extension / "Optional Package"
+ specifications in the manifests of the jars.
+
+ <p>Prior to JDK1.3, an "Optional Package" was known as an Extension.
+ The specification for this mechanism is available in the JDK1.3
+ documentation in the directory
+ $JDK_HOME/docs/guide/extensions/versioning.html. Alternatively it is
+ available online at http://java.sun.com/j2se/1.3/docs/guide/extensions/versioning.html.</p>
+  ]]></description>
+				</task>
+				<task name="jarlib-resolve">
+					<structure>
+						<attributes>
+							<attribute name="checkextension" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="property" required="true"/>
+						</attributes>
+						<elements>
+							<element name="ant" required="false"/>
+							<element name="extension" required="false"/>
+							<element name="location" required="false"/>
+							<element name="url" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Tries to locate a JAR to satisfy an extension and place
+ location of JAR into property.
+  ]]></description>
+				</task>
+				<task name="java">
+					<structure>
+						<attributes>
+							<attribute name="append" required="false"/>
+							<attribute name="classname" required="false"/>
+							<attribute name="classpath" required="false"/>
+							<attribute name="classpathref" required="false"/>
+							<attribute name="dir" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="fork" required="false"/>
+							<attribute name="jvmversion" required="false"/>
+							<attribute name="jar" required="false"/>
+							<attribute name="jvm" required="false"/>
+							<attribute name="jvmargs" required="false"/>
+							<attribute name="maxmemory" required="false"/>
+							<attribute name="newenvironment" required="false"/>
+							<attribute name="output" required="false"/>
+							<attribute name="timeout" required="false"/>
+						</attributes>
+						<elements>
+							<element name="env" required="false"/>
+							<element name="sysproperty" required="false"/>
+							<element name="arg" required="false"/>
+							<element name="classpath" required="false"/>
+							<element name="jvmarg" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Launcher for Java applications. Allows use of
+ the same JVM for the called application thus resulting in much
+ faster operation.
+  ]]></description>
+				</task>
+				<task name="javac">
+					<structure>
+						<attributes>
+							<attribute name="bootclasspathref" required="false"/>
+							<attribute name="bootclasspath" required="false"/>
+							<attribute name="classpath" required="false"/>
+							<attribute name="classpathref" required="false"/>
+							<attribute name="compiler" required="false"/>
+							<attribute name="debug" required="false"/>
+							<attribute name="debuglevel" required="false"/>
+							<attribute name="depend" required="false"/>
+							<attribute name="deprecation" required="false"/>
+							<attribute name="destdir" required="false"/>
+							<attribute name="encoding" required="false"/>
+							<attribute name="executable" required="false"/>
+							<attribute name="extdirs" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="fork" required="false"/>
+							<attribute name="includeantruntime" required="false"/>
+							<attribute name="includejavaruntime" required="false"/>
+							<attribute name="listfiles" required="false"/>
+							<attribute name="memoryinitialsize" required="false"/>
+							<attribute name="memorymaximumsize" required="false"/>
+							<attribute name="nowarn" required="false"/>
+							<attribute name="optimize" required="false"/>
+							<attribute name="source" required="false"/>
+							<attribute name="sourcepath" required="false"/>
+							<attribute name="sourcepathref" required="false"/>
+							<attribute name="srcdir" required="false"/>
+							<attribute name="target" required="false"/>
+							<attribute name="verbose" required="false"/>
+						</attributes>
+						<elements>
+							<element name="bootclasspath" required="false"/>
+							<element name="classpath" required="false"/>
+							<element name="compilerarg" required="false"/>
+							<element name="extdirs" required="false"/>
+							<element name="sourcepath" required="false"/>
+							<element name="src" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Compiles Java source files. This task can take the following
+ When this task executes, it will recursively scan the sourcedir and
+ destdir looking for Java source files to compile. This task makes its
+ compile decision based on timestamp.
+  ]]></description>
+				</task>
+				<task name="javacc">
+					<structure>
+						<attributes>
+							<attribute name="buildparser" required="false"/>
+							<attribute name="buildtokenmanager" required="false"/>
+							<attribute name="cachetokens" required="false"/>
+							<attribute name="choiceambiguitycheck" required="false"/>
+							<attribute name="commontokenaction" required="false"/>
+							<attribute name="debuglookahead" required="false"/>
+							<attribute name="debugparser" required="false"/>
+							<attribute name="debugtokenmanager" required="false"/>
+							<attribute name="errorreporting" required="false"/>
+							<attribute name="forcelacheck" required="false"/>
+							<attribute name="ignorecase" required="false"/>
+							<attribute name="javacchome" required="true"/>
+							<attribute name="javaunicodeescape" required="false"/>
+							<attribute name="lookahead" required="false"/>
+							<attribute name="optimizetokenmanager" required="false"/>
+							<attribute name="otherambiguitycheck" required="false"/>
+							<attribute name="outputdirectory" required="false"/>
+							<attribute name="sanitycheck" required="false"/>
+							<attribute name="static" required="false"/>
+							<attribute name="target" required="true"/>
+							<attribute name="unicodeinput" required="false"/>
+							<attribute name="usercharstream" required="false"/>
+							<attribute name="usertokenmanager" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    JavaCC compiler compiler task.
+  ]]></description>
+				</task>
+				<task name="javadoc">
+					<structure>
+						<attributes>
+							<attribute name="access" required="false"/>
+							<attribute name="additionalparam" required="false"/>
+							<attribute name="author" required="false"/>
+							<attribute name="bootclasspathref" required="false"/>
+							<attribute name="bootclasspath" required="false"/>
+							<attribute name="bottom" required="false"/>
+							<attribute name="charset" required="false"/>
+							<attribute name="classpath" required="false"/>
+							<attribute name="classpathref" required="false"/>
+							<attribute name="defaultexcludes" required="false"/>
+							<attribute name="destdir" required="false"/>
+							<attribute name="docencoding" required="false"/>
+							<attribute name="doclet" required="false"/>
+							<attribute name="docletpath" required="false"/>
+							<attribute name="docletpathref" required="false"/>
+							<attribute name="doctitle" required="false"/>
+							<attribute name="encoding" required="false"/>
+							<attribute name="excludepackagenames" required="false"/>
+							<attribute name="extdirs" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="footer" required="false"/>
+							<attribute name="group" required="false"/>
+							<attribute name="header" required="false"/>
+							<attribute name="helpfile" required="false"/>
+							<attribute name="link" required="false"/>
+							<attribute name="linkoffline" required="false"/>
+							<attribute name="locale" required="false"/>
+							<attribute name="maxmemory" required="false"/>
+							<attribute name="nodeprecated" required="false"/>
+							<attribute name="nodeprecatedlist" required="false"/>
+							<attribute name="nohelp" required="false"/>
+							<attribute name="noindex" required="false"/>
+							<attribute name="nonavbar" required="false"/>
+							<attribute name="notree" required="false"/>
+							<attribute name="old" required="false"/>
+							<attribute name="overview" required="false"/>
+							<attribute name="package" required="false"/>
+							<attribute name="packagelist" required="false"/>
+							<attribute name="packagenames" required="false"/>
+							<attribute name="private" required="false"/>
+							<attribute name="protected" required="false"/>
+							<attribute name="public" required="false"/>
+							<attribute name="serialwarn" required="false"/>
+							<attribute name="source" required="false"/>
+							<attribute name="sourcefiles" required="false"/>
+							<attribute name="sourcepath" required="false"/>
+							<attribute name="sourcepathref" required="false"/>
+							<attribute name="splitindex" required="false"/>
+							<attribute name="stylesheetfile" required="false"/>
+							<attribute name="use" required="false"/>
+							<attribute name="useexternalfile" required="false"/>
+							<attribute name="verbose" required="false"/>
+							<attribute name="version" required="false"/>
+							<attribute name="windowtitle" required="false"/>
+						</attributes>
+						<elements>
+							<element name="bottom" required="false"/>
+							<element name="doctitle" required="false"/>
+							<element name="excludepackage" required="false"/>
+							<element name="fileset" required="false"/>
+							<element name="footer" required="false"/>
+							<element name="header" required="false"/>
+							<element name="package" required="false"/>
+							<element name="packageset" required="false"/>
+							<element name="source" required="false"/>
+							<element name="taglet" required="false"/>
+							<element name="bootclasspath" required="false"/>
+							<element name="classpath" required="false"/>
+							<element name="doclet" required="false"/>
+							<element name="group" required="false"/>
+							<element name="link" required="false"/>
+							<element name="sourcepath" required="false"/>
+							<element name="tag" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Generates Javadoc documentation for a collection
+ of source code.
+
+ <P>Current known limitations are:
+
+ <P><UL>
+    <LI>patterns must be of the form "xxx.*", every other pattern doesn't
+        work.
+    <LI>there is no control on arguments sanity since they are left
+        to the javadoc implementation.
+    <LI>argument J in javadoc1 is not supported (what is that for anyway?)
+ </UL>
+ <P>If no doclet is set, then the version and
+ author are by default "yes".
+
+ <P>Note: This task is run on another VM because the Javadoc code calls
+ System.exit() which would break Ant functionality.
+  ]]></description>
+				</task>
+				<task name="javah">
+					<structure>
+						<attributes>
+							<attribute name="bootclasspathref" required="false"/>
+							<attribute name="bootclasspath" required="false"/>
+							<attribute name="class" required="true"/>
+							<attribute name="classpath" required="false"/>
+							<attribute name="classpathref" required="false"/>
+							<attribute name="destdir" required="false"/>
+							<attribute name="force" required="false"/>
+							<attribute name="old" required="false"/>
+							<attribute name="outputfile" required="true"/>
+							<attribute name="stubs" required="false"/>
+							<attribute name="verbose" required="false"/>
+						</attributes>
+						<elements>
+							<element name="bootclasspath" required="false"/>
+							<element name="class" required="false"/>
+							<element name="classpath" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+  Generates JNI headers from a Java class.
+When this task executes, it will generate the C header and source files that are needed to implement native methods. JNI operates differently depending on whether JDK1.2 (or later) or pre-JDK1.2 systems are used.
+  ]]></description>
+				</task>
+				<task name="jdepend">
+					<structure>
+						<attributes>
+							<attribute name="classpath" required="false"/>
+							<attribute name="classpathref" required="false"/>
+							<attribute name="dir" required="false"/>
+							<attribute name="fork" required="false"/>
+							<attribute name="format" required="false"/>
+							<attribute name="haltonerror" required="false"/>
+							<attribute name="jvm" required="false"/>
+							<attribute name="outputfile" required="false"/>
+						</attributes>
+						<elements>
+							<element name="classpath" required="false"/>
+							<element name="sourcespath" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Runs JDepend tests.
+
+ <p>JDepend is a tool to generate design quality metrics for each Java package.
+ It has been initially created by Mike Clark. JDepend can be found at <a
+ href="http://www.clarkware.com/software/JDepend.html">http://www.clarkware.com/software/JDepend.html</a>.
+
+ The current implementation spawn a new Java VM.
+  ]]></description>
+				</task>
+				<task name="jjtree">
+					<structure>
+						<attributes>
+							<attribute name="buildnodefiles" required="false"/>
+							<attribute name="javacchome" required="true"/>
+							<attribute name="multi" required="false"/>
+							<attribute name="nodedefaultvoid" required="false"/>
+							<attribute name="nodefactory" required="false"/>
+							<attribute name="nodepackage" required="false"/>
+							<attribute name="nodeprefix" required="false"/>
+							<attribute name="nodescopehook" required="false"/>
+							<attribute name="nodeusesparser" required="false"/>
+							<attribute name="outputdirectory" required="false"/>
+							<attribute name="static" required="false"/>
+							<attribute name="target" required="true"/>
+							<attribute name="visitor" required="false"/>
+							<attribute name="visitorexception" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Runs the JJTree compiler compiler.
+  ]]></description>
+				</task>
+				<task name="jpcoverage">
+					<structure>
+						<attributes>
+							<attribute name="applet" required="false"/>
+							<attribute name="classname" required="false"/>
+							<attribute name="exitprompt" required="false"/>
+							<attribute name="finalsnapshot" required="false"/>
+							<attribute name="home" required="false"/>
+							<attribute name="javaexe" required="false"/>
+							<attribute name="recordfromstart" required="false"/>
+							<attribute name="seedname" required="false"/>
+							<attribute name="snapshotdir" required="false"/>
+							<attribute name="tracknatives" required="false"/>
+							<attribute name="vm" required="false"/>
+							<attribute name="warnlevel" required="false"/>
+							<attribute name="workingdir" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+							<element name="arg" required="false"/>
+							<element name="classpath" required="false"/>
+							<element name="filters" required="false"/>
+							<element name="jvmarg" required="false"/>
+							<element name="socket" required="false"/>
+							<element name="triggers" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Runs Sitraka JProbe Coverage.
+
+ Options are pretty numerous, you'd better check the manual for a full
+ descriptions of options. (not that simple since they differ from the online
+ help, from the usage command line and from the examples...)
+ <p>
+ For additional information, visit www.sitraka.com
+  ]]></description>
+				</task>
+				<task name="jpcovmerge">
+					<structure>
+						<attributes>
+							<attribute name="home" required="false"/>
+							<attribute name="tofile" required="false"/>
+							<attribute name="verbose" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Runs the snapshot merge utility for JProbe Coverage.
+  ]]></description>
+				</task>
+				<task name="jpcovreport">
+					<structure>
+						<attributes>
+							<attribute name="format" required="false"/>
+							<attribute name="home" required="false"/>
+							<attribute name="includesource" required="false"/>
+							<attribute name="percent" required="false"/>
+							<attribute name="snapshot" required="false"/>
+							<attribute name="tofile" required="false"/>
+							<attribute name="type" required="false"/>
+						</attributes>
+						<elements>
+							<element name="reference" required="false"/>
+							<element name="sourcepath" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Runs the JProbe Coverage 3.0 snapshot merge utility.
+  ]]></description>
+				</task>
+				<task name="jspc">
+					<structure>
+						<attributes>
+							<attribute name="classpath" required="false"/>
+							<attribute name="classpathref" required="false"/>
+							<attribute name="compiler" required="false"/>
+							<attribute name="compilerclasspath" required="false"/>
+							<attribute name="destdir" required="true"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="ieplugin" required="false"/>
+							<attribute name="mapped" required="false"/>
+							<attribute name="package" required="false"/>
+							<attribute name="srcdir" required="true"/>
+							<attribute name="uribase" required="false"/>
+							<attribute name="uriroot" required="false"/>
+							<attribute name="verbose" required="false"/>
+							<attribute name="webinc" required="false"/>
+							<attribute name="webxml" required="false"/>
+						</attributes>
+						<elements>
+							<element name="webapp" required="false"/>
+							<element name="classpath" required="false"/>
+							<element name="compilerclasspath" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Runs a JSP compiler.
+
+ <p> This task takes the given jsp files and compiles them into java
+ files. It is then up to the user to compile the java files into classes.
+
+ <p> The task requires the srcdir and destdir attributes to be
+ set. This Task is a MatchingTask, so the files to be compiled can be
+ specified using includes/excludes attributes or nested include/exclude
+ elements. Optional attributes are verbose (set the verbosity level passed
+ to jasper), package (name of the destination package for generated java
+ classes and classpath (the classpath to use when running the jsp
+ compiler).
+ <p> This task supports the nested elements classpath (A Path) and
+ classpathref (A Reference) which can be used in preference to the
+ attribute classpath, if the jsp compiler is not already in the ant
+ classpath.
+
+ <p><h4>Usage</h4>
+ <pre>
+ <jspc srcdir="${basedir}/src/war"
+       destdir="${basedir}/gensrc"
+       package="com.i3sp.jsp"
+       verbose="9">
+   <include name="**\/*.jsp" />
+ </jspc>
+ </pre>
+  ]]></description>
+				</task>
+				<task name="junit">
+					<structure>
+						<attributes>
+							<attribute name="dir" required="false"/>
+							<attribute name="errorproperty" required="false"/>
+							<attribute name="failureproperty" required="false"/>
+							<attribute name="filtertrace" required="false"/>
+							<attribute name="fork" required="false"/>
+							<attribute name="haltonerror" required="false"/>
+							<attribute name="haltonfailure" required="false"/>
+							<attribute name="includeantruntime" required="false"/>
+							<attribute name="jvm" required="false"/>
+							<attribute name="maxmemory" required="false"/>
+							<attribute name="newenvironment" required="false"/>
+							<attribute name="printsummary" required="false"/>
+							<attribute name="showoutput" required="false"/>
+							<attribute name="timeout" required="false"/>
+						</attributes>
+						<elements>
+							<element name="env" required="false"/>
+							<element name="formatter" required="false"/>
+							<element name="sysproperty" required="false"/>
+							<element name="test" required="false"/>
+							<element name="batchtest" required="false"/>
+							<element name="classpath" required="false"/>
+							<element name="jvmarg" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Runs JUnit tests.
+
+ <p> JUnit is a framework to create unit test. It has been initially
+ created by Erich Gamma and Kent Beck.  JUnit can be found at <a
+ href="http://www.junit.org">http://www.junit.org</a>.
+
+ <p> JUnitTask can run a single specific
+ JUnitTest using the test element.</p>
+ <p> This task can also run batches of tests.  The
+ batchtest element creates a BatchTest
+ based on a fileset.  This allows, for example, all classes found in
+ directory to be run as testcases.</p>
+ <p> To spawn a new Java VM to prevent interferences between
+ different testcases, you need to enable fork.  A
+ number of attributes and elements allow you to set up how this JVM
+ runs.
+  ]]></description>
+				</task>
+				<task name="junitreport">
+					<structure>
+						<attributes>
+							<attribute name="todir" required="false"/>
+							<attribute name="tofile" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+							<element name="report" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Aggregates all <junit> XML formatter testsuite data under
+ a specific directory and transforms the results via XSLT.
+ It is not particulary clean but
+ should be helpful while I am thinking about another technique.
+
+ <p> The main problem is due to the fact that a JVM can be forked for a testcase
+ thus making it impossible to aggregate all testcases since the listener is
+ (obviously) in the forked JVM. A solution could be to write a
+ TestListener that will receive events from the TestRunner via sockets. This
+ is IMHO the simplest way to do it to avoid this file hacking thing.
+  ]]></description>
+				</task>
+				<task name="keysubst">
+					<structure>
+						<attributes>
+							<attribute name="dest" required="false"/>
+							<attribute name="keys" required="false"/>
+							<attribute name="sep" required="false"/>
+							<attribute name="src" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Keyword substitution. Input file is written to output file.
+ Do not make input file same as output file.
+ Keywords in input files look like this: @foo@. See the docs for the 
+ setKeys method to understand how to do the substitutions.
+  ]]></description>
+				</task>
+				<task name="loadfile">
+					<structure>
+						<attributes>
+							<attribute name="encoding" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="property" required="true"/>
+							<attribute name="srcfile" required="true"/>
+						</attributes>
+						<elements>
+							<element name="filterchain" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Load a file into a property
+  ]]></description>
+				</task>
+				<task name="loadproperties">
+					<structure>
+						<attributes>
+							<attribute name="srcfile" required="true"/>
+						</attributes>
+						<elements>
+							<element name="filterchain" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Load a file's contents as Ant properties.
+  ]]></description>
+				</task>
+				<task name="mail">
+					<structure>
+						<attributes>
+							<attribute name="bcclist" required="false"/>
+							<attribute name="cclist" required="false"/>
+							<attribute name="encoding" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="files" required="false"/>
+							<attribute name="from" required="false"/>
+							<attribute name="includefilenames" required="false"/>
+							<attribute name="mailhost" required="false"/>
+							<attribute name="mailport" required="false"/>
+							<attribute name="message" required="false"/>
+							<attribute name="messagefile" required="false"/>
+							<attribute name="messagemimetype" required="false"/>
+							<attribute name="subject" required="false"/>
+							<attribute name="tolist" required="false"/>
+						</attributes>
+						<elements>
+							<element name="bcc" required="false"/>
+							<element name="cc" required="false"/>
+							<element name="fileset" required="false"/>
+							<element name="from" required="false"/>
+							<element name="message" required="false"/>
+							<element name="to" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    A task to send SMTP email. This is a refactoring of the SendMail and
+ MimeMail tasks such that both are within a single task.
+  ]]></description>
+				</task>
+				<task name="manifest">
+					<structure>
+						<attributes>
+							<attribute name="file" required="true"/>
+							<attribute name="mode" required="false"/>
+						</attributes>
+						<elements>
+							<element name="attribute" required="false"/>
+							<element name="section" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Creates a manifest file for inclusion in a JAR, Ant task wrapper
+ around {@link Manifest Manifest}.  This task can be used to write a
+ Manifest file, optionally replacing or updating an existing file.
+  ]]></description>
+				</task>
+				<task name="maudit">
+					<structure>
+						<attributes>
+							<attribute name="fix" required="false"/>
+							<attribute name="list" required="false"/>
+							<attribute name="maxmemory" required="false"/>
+							<attribute name="metamatahome" required="true"/>
+							<attribute name="tofile" required="true"/>
+							<attribute name="unused" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+							<element name="classpath" required="false"/>
+							<element name="jvmarg" required="false"/>
+							<element name="rulespath" required="false"/>
+							<element name="searchpath" required="false"/>
+							<element name="sourcepath" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Invokes the Metamata Audit/ Webgain Quality Analyzer on a set of Java files.
+ <p>
+ <i>maudit</i> performs static analysis of the Java source code and byte code files to find and report
+ errors of style and potential problems related to performance, maintenance and robustness.
+  As a convenience, a stylesheet is given in <tt>etc</tt> directory, so that an HTML report 
+ can be generated from the XML file.
+  ]]></description>
+				</task>
+				<task name="mimemail">
+					<structure>
+						<attributes>
+							<attribute name="bcclist" required="false"/>
+							<attribute name="cclist" required="false"/>
+							<attribute name="encoding" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="files" required="false"/>
+							<attribute name="from" required="true"/>
+							<attribute name="includefilenames" required="false"/>
+							<attribute name="mailhost" required="false"/>
+							<attribute name="mailport" required="false"/>
+							<attribute name="message" required="false"/>
+							<attribute name="messagefile" required="false"/>
+							<attribute name="messagemimetype" required="false"/>
+							<attribute name="subject" required="false"/>
+							<attribute name="tolist" required="false"/>
+						</attributes>
+						<elements>
+							<element name="bcc" required="false"/>
+							<element name="cc" required="false"/>
+							<element name="fileset" required="false"/>
+							<element name="from" required="false"/>
+							<element name="message" required="false"/>
+							<element name="to" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    A task to send SMTP email; Use <tt>mail</tt> instead
+  ]]></description>
+				</task>
+				<task name="mkdir">
+					<structure>
+						<attributes>
+							<attribute name="dir" required="true"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Creates a given directory.
+ Creates a directory and any non-existent parent directories, when
+ necessary
+  ]]></description>
+				</task>
+				<task name="mmetrics">
+					<structure>
+						<attributes>
+							<attribute name="granularity" required="true"/>
+							<attribute name="maxmemory" required="false"/>
+							<attribute name="metamatahome" required="true"/>
+							<attribute name="tofile" required="true"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+							<element name="classpath" required="false"/>
+							<element name="jvmarg" required="false"/>
+							<element name="path" required="false"/>
+							<element name="sourcepath" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Computes the metrics of a set of Java files and write the results to an XML
+ file. As a convenience, a stylesheet is given in <tt>etc</tt> directory,
+ so that an HTML report can be generated from the XML file.
+ <p>
+ You will not be able to use this task with the evaluation version since
+ as of Metamata 2.0, Metrics does not support command line :-(
+  ]]></description>
+				</task>
+				<task name="move">
+					<structure>
+						<attributes>
+							<attribute name="encoding" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="filtering" required="false"/>
+							<attribute name="flatten" required="false"/>
+							<attribute name="includeemptydirs" required="false"/>
+							<attribute name="overwrite" required="false"/>
+							<attribute name="preservelastmodified" required="false"/>
+							<attribute name="todir" required="false"/>
+							<attribute name="tofile" required="false"/>
+							<attribute name="verbose" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+							<element name="filterchain" required="false"/>
+							<element name="filterset" required="false"/>
+							<element name="mapper" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Moves a file or directory to a new file or directory.
+ By default, the
+ destination file is overwritten if it already exists.
+ When <i>overwrite</i> is
+ turned off, then files are only moved if the source file is
+ newer than the destination file, or when the destination file does
+ not exist.
+
+ <p>Source files and directories are only deleted when the file or
+ directory has been copied to the destination successfully.  Filtering
+ also works.</p>
+ <p>This implementation is based on Arnout Kuiper's initial design
+ document, the following mailing list discussions, and the
+ copyfile/copydir tasks.</p>
+  ]]></description>
+				</task>
+				<task name="mparse">
+					<structure>
+						<attributes>
+							<attribute name="cleanup" required="false"/>
+							<attribute name="debugparser" required="false"/>
+							<attribute name="debugscanner" required="false"/>
+							<attribute name="maxmemory" required="false"/>
+							<attribute name="metamatahome" required="true"/>
+							<attribute name="target" required="true"/>
+							<attribute name="verbose" required="false"/>
+						</attributes>
+						<elements>
+							<element name="classpath" required="false"/>
+							<element name="jvmarg" required="false"/>
+							<element name="sourcepath" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Simple Metamata MParse task.
+ Based on the original written by Thomas Haas.
+ This version was written for Metamata 2.0 available at http://www.metamata.com
+  ]]></description>
+				</task>
+				<task name="native2ascii">
+					<structure>
+						<attributes>
+							<attribute name="dest" required="true"/>
+							<attribute name="encoding" required="false"/>
+							<attribute name="ext" required="false"/>
+							<attribute name="reverse" required="false"/>
+							<attribute name="src" required="false"/>
+						</attributes>
+						<elements>
+							<element name="mapper" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Converts files from native encodings to ASCII.
+  ]]></description>
+				</task>
+				<task name="netrexxc">
+					<structure>
+						<attributes>
+							<attribute name="binary" required="false"/>
+							<attribute name="classpath" required="false"/>
+							<attribute name="comments" required="false"/>
+							<attribute name="compact" required="false"/>
+							<attribute name="compile" required="false"/>
+							<attribute name="console" required="false"/>
+							<attribute name="crossref" required="false"/>
+							<attribute name="decimal" required="false"/>
+							<attribute name="destdir" required="true"/>
+							<attribute name="diag" required="false"/>
+							<attribute name="explicit" required="false"/>
+							<attribute name="format" required="false"/>
+							<attribute name="java" required="false"/>
+							<attribute name="keep" required="false"/>
+							<attribute name="logo" required="false"/>
+							<attribute name="replace" required="false"/>
+							<attribute name="savelog" required="false"/>
+							<attribute name="sourcedir" required="false"/>
+							<attribute name="srcdir" required="true"/>
+							<attribute name="strictargs" required="false"/>
+							<attribute name="strictassign" required="false"/>
+							<attribute name="strictcase" required="false"/>
+							<attribute name="strictimport" required="false"/>
+							<attribute name="strictprops" required="false"/>
+							<attribute name="strictsignal" required="false"/>
+							<attribute name="suppressdeprecation" required="false"/>
+							<attribute name="suppressexceptionnotsignalled" required="false"/>
+							<attribute name="suppressmethodargumentnotused" required="false"/>
+							<attribute name="suppressprivatepropertynotused" required="false"/>
+							<attribute name="suppressvariablenotused" required="false"/>
+							<attribute name="symbols" required="false"/>
+							<attribute name="time" required="false"/>
+							<attribute name="trace" required="false"/>
+							<attribute name="utf8" required="false"/>
+							<attribute name="verbose" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Compiles NetRexx source files.
+ <p>When this task executes, it will recursively scan the srcdir
+ looking for NetRexx source files to compile. This task makes its
+ compile decision based on timestamp.
+ <p>Before files are compiled they and any other file in the
+ srcdir will be copied to the destdir allowing support files to be
+ located properly in the classpath. The reason for copying the source files
+ before the compile is that NetRexxC has only two destinations for classfiles:
+ <ol>
+ <li>The current directory, and,</li>
+ <li>The directory the source is in (see sourcedir option)
+ </ol>
+  ]]></description>
+				</task>
+				<task name="p4add">
+					<structure>
+						<attributes>
+							<attribute name="changelist" required="false"/>
+							<attribute name="client" required="false"/>
+							<attribute name="cmdopts" required="false"/>
+							<attribute name="commandlength" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="port" required="false"/>
+							<attribute name="user" required="false"/>
+							<attribute name="view" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Adds specified files to Perforce.
+
+ <b>Example Usage:</b>
+ <table border="1">
+ <th>Function</th><th>Command</th>
+ <tr><td>Add files using P4USER, P4PORT and P4CLIENT settings specified</td><td><P4add <br>P4view="//projects/foo/main/source/..." <br>P4User="fbloggs" <br>P4Port="km01:1666" <br>P4Client="fbloggsclient"><br><fileset basedir="dir" includes="**/*.java"><br></p4add></td></tr>
+ <tr><td>Add files using P4USER, P4PORT and P4CLIENT settings defined in environment</td><td><P4add P4view="//projects/foo/main/source/..." /><br><fileset basedir="dir" includes="**/*.java"><br></p4add></td></tr>
+ <tr><td>Specify the length of command line arguments to pass to each invocation of p4</td><td><p4add Commandlength="450"></td></tr>
+ </table>
+  ]]></description>
+				</task>
+				<task name="p4change">
+					<structure>
+						<attributes>
+							<attribute name="client" required="false"/>
+							<attribute name="cmdopts" required="false"/>
+							<attribute name="description" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="port" required="false"/>
+							<attribute name="user" required="false"/>
+							<attribute name="view" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Requests a new changelist from the Perforce server.
+ P4Change creates a new changelist in perforce. P4Change sets the property
+ ${p4.change} with the new changelist number. This should then be passed into
+ p4edit and p4submit.
+  ]]></description>
+				</task>
+				<task name="p4counter">
+					<structure>
+						<attributes>
+							<attribute name="client" required="false"/>
+							<attribute name="cmdopts" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="name" required="false"/>
+							<attribute name="port" required="false"/>
+							<attribute name="property" required="false"/>
+							<attribute name="user" required="false"/>
+							<attribute name="value" required="false"/>
+							<attribute name="view" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Obtains or sets the value of a counter.
+
+ <p> When used in its base form
+ (where only the counter name is provided), the counter value will be
+ printed to the output stream. When the value is provided, the counter
+ will be set to the value provided. When a property name is provided,
+ the property will be filled with the value of the counter. You may
+ not specify to both get and set the value of the counter in the same
+ Task.
+ </p>
+ <P>
+ The user performing this task must have Perforce "review" permissions
+ as defined by Perforce protections in order for this task to succeed.
+</P>
+ Example Usage:<br>
+ <p4counter name="${p4.counter}" property=${p4.change}"/>
+  ]]></description>
+				</task>
+				<task name="p4delete">
+					<structure>
+						<attributes>
+							<attribute name="change" required="false"/>
+							<attribute name="client" required="false"/>
+							<attribute name="cmdopts" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="port" required="false"/>
+							<attribute name="user" required="false"/>
+							<attribute name="view" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[Checkout files for deletion.
+
+
+
+ Example Usage:<br>
+ <font color="#8b0000">&nbsp;</font><font color="#0000ff">&lt;</font><font color="#00008b">p4delete</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">change</font><font color="#0000ff">=</font><font color="#008080">"${p4.change}"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">view</font><font color="#0000ff">=</font><font color="#008080">"//depot/project/foo.txt"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">/</font><font color="#0000ff">&gt;</font><br>
+<br>
+ Simple re-write of P4Edit changing 'edit' to 'delete'.<br>]]></description>
+				</task>
+				<task name="p4edit">
+					<structure>
+						<attributes>
+							<attribute name="change" required="false"/>
+							<attribute name="client" required="false"/>
+							<attribute name="cmdopts" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="port" required="false"/>
+							<attribute name="user" required="false"/>
+							<attribute name="view" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[Open file(s) for edit. 
+
+ P4Change should be used to obtain a new changelist for P4Edit as,
+
+ although P4Edit can open files to the default change,  
+
+ P4Submit cannot yet submit to it.
+
+ Example Usage:<br>
+ <font color="#8b0000">&nbsp;</font><font color="#0000ff">&lt;</font><font color="#00008b">p4edit</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">change</font><font color="#0000ff">=</font><font color="#008080">"${p4.change}"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">view</font><font color="#0000ff">=</font><font color="#008080">"//depot/project/foo.txt"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">/</font><font color="#0000ff">&gt;</font><br>
+]]></description>
+				</task>
+				<task name="p4have">
+					<structure>
+						<attributes>
+							<attribute name="client" required="false"/>
+							<attribute name="cmdopts" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="port" required="false"/>
+							<attribute name="user" required="false"/>
+							<attribute name="view" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Lists Perforce files currently on client.
+
+ P4Have simply dumps the current file version info into
+ the Ant log (or stdout).
+  ]]></description>
+				</task>
+				<task name="p4label">
+					<structure>
+						<attributes>
+							<attribute name="client" required="false"/>
+							<attribute name="cmdopts" required="false"/>
+							<attribute name="desc" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="lock" required="false"/>
+							<attribute name="name" required="false"/>
+							<attribute name="port" required="false"/>
+							<attribute name="user" required="false"/>
+							<attribute name="view" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[Creates a new Perforce label and set contents to reflect current
+
+  client file revisions.
+
+
+
+  Label name defaults to AntLabel if none set.
+
+
+
+ Example Usage:
+
+ <p>
+   <font color="#8b0000">&nbsp;&nbsp;&nbsp;</font><font color="#0000ff">&lt;</font><font color="#00008b">P4Label</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">name</font><font color="#0000ff">=</font><font color="#008080">"MyLabel-${TSTAMP}-${DSTAMP}"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">desc</font><font color="#0000ff">=</font><font color="#008080">"Auto&nbsp;Build&nbsp;Label"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">/</font><font color="#0000ff">&gt;</font><br>
+<br>
+]]></description>
+				</task>
+				<task name="p4reopen">
+					<structure>
+						<attributes>
+							<attribute name="client" required="false"/>
+							<attribute name="cmdopts" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="port" required="false"/>
+							<attribute name="tochange" required="true"/>
+							<attribute name="user" required="false"/>
+							<attribute name="view" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    
+  ]]></description>
+				</task>
+				<task name="p4revert">
+					<structure>
+						<attributes>
+							<attribute name="change" required="false"/>
+							<attribute name="client" required="false"/>
+							<attribute name="cmdopts" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="port" required="false"/>
+							<attribute name="revertonlyunchanged" required="false"/>
+							<attribute name="user" required="false"/>
+							<attribute name="view" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Revert Perforce open files or files in a changelist
+  ]]></description>
+				</task>
+				<task name="p4submit">
+					<structure>
+						<attributes>
+							<attribute name="change" required="false"/>
+							<attribute name="client" required="false"/>
+							<attribute name="cmdopts" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="port" required="false"/>
+							<attribute name="user" required="false"/>
+							<attribute name="view" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Submits a numbered changelist to Perforce.
+
+ <B>Note:</B> P4Submit cannot (yet) submit the default changelist.
+ This shouldn't be a problem with the ANT task as the usual flow is
+ P4Change to create a new numbered change followed by P4Edit then P4Submit.
+
+ Example Usage:-<br>
+ <p4submit change="${p4.change}" />
+  ]]></description>
+				</task>
+				<task name="p4sync">
+					<structure>
+						<attributes>
+							<attribute name="client" required="false"/>
+							<attribute name="cmdopts" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="force" required="false"/>
+							<attribute name="label" required="false"/>
+							<attribute name="port" required="false"/>
+							<attribute name="user" required="false"/>
+							<attribute name="view" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[Synchronize client space to a Perforce depot view.
+
+
+
+  The API allows additional functionality of the "p4 sync" command
+
+ (such as "p4 sync -f //...#have" or other exotic invocations).</P>
+ <b>Example Usage:</b>
+ <table border="1">
+ <th>Function</th><th>Command</th>
+ <tr><td>Sync to head using P4USER, P4PORT and P4CLIENT settings specified</td><td><font color="#0000ff">&gt;</font><font color="#0000ff">&lt;</font><font color="#00008b">P4Sync</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">P4view</font><font color="#0000ff">=</font><font color="#008080">"//projects/foo/main/source/..."</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">P4User</font><font color="#0000ff">=</font><font color="#008080">"fbloggs"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">P4Port</font><font color="#0000ff">=</font><font color="#008080">"km01:1666"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">P4Client</font><font color="#0000ff">=</font><font color="#008080">"fbloggsclient"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">/</font><font color="#0000ff">&gt;</font><br>
+</td></tr>
+ <tr><td>Sync to head using P4USER, P4PORT and P4CLIENT settings defined in environment</td><td><font color="#0000ff">&gt;</font><font color="#0000ff">&lt;</font><font color="#00008b">P4Sync</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">P4view</font><font color="#0000ff">=</font><font color="#008080">"//projects/foo/main/source/..."</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">/</font><font color="#0000ff">&gt;</font><br>
+</td></tr>
+ <tr><td>Force a re-sync to head, refreshing all files</td><td><font color="#0000ff">&gt;</font><font color="#0000ff">&lt;</font><font color="#00008b">P4Sync</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">force</font><font color="#0000ff">=</font><font color="#008080">"yes"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">P4view</font><font color="#0000ff">=</font><font color="#008080">"//projects/foo/main/source/..."</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">/</font><font color="#0000ff">&gt;</font><br>
+</td></tr>
+ <tr><td>Sync to a label</td><td><font color="#0000ff">&gt;</font><font color="#0000ff">&lt;</font><font color="#00008b">P4Sync</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">label</font><font color="#0000ff">=</font><font color="#008080">"myPerforceLabel"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">/</font><font color="#0000ff">&gt;</font><br>
+</td></tr>
+ </table>]]></description>
+				</task>
+				<task name="parallel">
+					<structure/>
+					<description><![CDATA[
+    Executes the contained tasks in separate threads, continuing
+ once all are completed.
+ <p>
+  ]]></description>
+				</task>
+				<task name="patch">
+					<structure>
+						<attributes>
+							<attribute name="backups" required="false"/>
+							<attribute name="dir" required="false"/>
+							<attribute name="ignorewhitespace" required="false"/>
+							<attribute name="originalfile" required="false"/>
+							<attribute name="patchfile" required="true"/>
+							<attribute name="quiet" required="false"/>
+							<attribute name="reverse" required="false"/>
+							<attribute name="strip" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Patches a file by applying a 'diff' file to it; requires "patch" to be
+ on the execution path.
+  ]]></description>
+				</task>
+				<task name="pathconvert">
+					<structure>
+						<attributes>
+							<attribute name="dirsep" required="false"/>
+							<attribute name="pathsep" required="false"/>
+							<attribute name="property" required="true"/>
+							<attribute name="refid" required="false"/>
+							<attribute name="setonempty" required="false"/>
+							<attribute name="targetos" required="false"/>
+						</attributes>
+						<elements>
+							<element name="map" required="false"/>
+							<element name="path" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Converts path and classpath information to a specific target OS
+ format. The resulting formatted path is placed into the specified property.
+  ]]></description>
+				</task>
+				<task name="property">
+					<structure>
+						<attributes>
+							<attribute name="classpath" required="false"/>
+							<attribute name="classpathref" required="false"/>
+							<attribute name="environment" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="location" required="false"/>
+							<attribute name="name" required="false"/>
+							<attribute name="prefix" required="false"/>
+							<attribute name="refid" required="false"/>
+							<attribute name="resource" required="false"/>
+							<attribute name="value" required="false"/>
+						</attributes>
+						<elements>
+							<element name="classpath" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Sets a property by name, or set of properties (from file or
+ resource) in the project.  </p>
+ Properties are immutable: whoever sets a property first freezes it for the
+ rest of the build; they are most definately not variable. 
+ <p>There are five ways to set properties:</p>
+ <ul>
+   <li>By supplying both the <i>name</i> and <i>value</i> attribute.</li>
+   <li>By supplying both the <i>name</i> and <i>refid</i> attribute.</li>
+   <li>By setting the <i>file</i> attribute with the filename of the property
+     file to load. This property file has the format as defined by the file used
+     in the class java.util.Properties.</li>
+   <li>By setting the <i>resource</i> attribute with the resource name of the
+     property file to load. This property file has the format as defined by the
+     file used in the class java.util.Properties.</li>
+   <li>By setting the <i>environment</i> attribute with a prefix to use.
+     Properties will be defined for every environment variable by
+     prefixing the supplied name and a period to the name of the variable.</li>
+ </ul>
+ <p>Although combinations of these ways are possible, only one should be used
+ at a time. Problems might occur with the order in which properties are set, for
+ instance.</p>
+ <p>The value part of the properties being set, might contain references to other
+ properties. These references are resolved at the time these properties are set.
+ This also holds for properties loaded from a property file.</p>
+ Properties are case sensitive.
+  ]]></description>
+				</task>
+				<task name="propertyfile">
+					<structure>
+						<attributes>
+							<attribute name="comment" required="false"/>
+							<attribute name="file" required="false"/>
+						</attributes>
+						<elements>
+							<element name="entry" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Modifies settings in a property file.
+  ]]></description>
+				</task>
+				<task name="pvcs">
+					<structure>
+						<attributes>
+							<attribute name="filenameformat" required="false"/>
+							<attribute name="force" required="false"/>
+							<attribute name="ignorereturncode" required="false"/>
+							<attribute name="label" required="false"/>
+							<attribute name="linestart" required="false"/>
+							<attribute name="promotiongroup" required="false"/>
+							<attribute name="pvcsbin" required="false"/>
+							<attribute name="pvcsproject" required="false"/>
+							<attribute name="repository" required="true"/>
+							<attribute name="updateonly" required="false"/>
+							<attribute name="workspace" required="false"/>
+						</attributes>
+						<elements>
+							<element name="pvcsproject" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Extracts the latest edition of the source code from a PVCS repository.
+ PVCS is a version control system
+ developed by Merant.
+ <br>
+ Before using this tag, the user running ant must have access to the commands 
+ of PVCS (get and pcli) and must have access to the repository. Note that the way to specify
+ the repository is platform dependent so use property to specify location of repository.
+ <br>
+ This version has been tested agains PVCS version 6.5 and 6.6 under Windows and Solaris.
+
+ <b>19-04-2001</b> <p>The task now has a more robust
+ parser. It allows for platform independant file paths
+ and supports file names with <i>()</i>. Thanks to Erik Husby for
+ bringing the bug to my attention.
+
+ <b>27-04-2001</b> <p>UNC paths are now handled properly.
+ Fix provided by Don Jeffery. He also added an <i>UpdateOnly</i> flag
+ that, when true, conditions the PVCS get using the -U option to only
+ update those files that have a modification time (in PVCS) that is newer
+ than the existing workfile.
+  ]]></description>
+				</task>
+				<task name="record">
+					<structure>
+						<attributes>
+							<attribute name="action" required="false"/>
+							<attribute name="append" required="false"/>
+							<attribute name="emacsmode" required="false"/>
+							<attribute name="loglevel" required="false"/>
+							<attribute name="name" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Adds a listener to the current build process that records the
+ output to a file.
+ <p>Several recorders can exist at the same time.  Each recorder is
+ associated with a file.  The filename is used as a unique identifier for
+ the recorders.  The first call to the recorder task with an unused filename
+ will create a recorder (using the parameters provided) and add it to the
+ listeners of the build.  All subsequent calls to the recorder task using
+ this filename will modify that recorders state (recording or not) or other
+ properties (like logging level).</p>
+ <p>Some technical issues: the file's print stream is flushed for "finished"
+ events (buildFinished, targetFinished and taskFinished), and is closed on
+ a buildFinished event.</p>
+  ]]></description>
+				</task>
+				<task name="rename">
+					<structure>
+						<attributes>
+							<attribute name="dest" required="true"/>
+							<attribute name="replace" required="false"/>
+							<attribute name="src" required="true"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Renames a file.
+  ]]></description>
+				</task>
+				<task name="renameextensions">
+					<structure>
+						<attributes>
+							<attribute name="fromextension" required="false"/>
+							<attribute name="replace" required="false"/>
+							<attribute name="srcdir" required="true"/>
+							<attribute name="toextension" required="true"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    
+  ]]></description>
+				</task>
+				<task name="replace">
+					<structure>
+						<attributes>
+							<attribute name="dir" required="false"/>
+							<attribute name="encoding" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="propertyfile" required="false"/>
+							<attribute name="replacefilterfile" required="false"/>
+							<attribute name="summary" required="false"/>
+							<attribute name="token" required="false"/>
+							<attribute name="value" required="false"/>
+						</attributes>
+						<elements>
+							<element name="replacetoken" required="false"/>
+							<element name="replacevalue" required="false"/>
+							<element name="replacefilter" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[Replaces all occurrences of one or more string tokens with given
+
+ values in the indicated files. Each value can be either a string 
+
+ or the value of a property available in a designated property file.
+
+ If you want to replace a text that crosses line boundaries, you
+
+ must use a nested <font color="#0000ff">&gt;</font><font color="#0000ff">&lt;</font><font color="#00008b">replacetoken</font><font color="#0000ff">&gt;</font><br>
+ element.]]></description>
+				</task>
+				<task name="replaceregexp">
+					<structure>
+						<attributes>
+							<attribute name="byline" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="flags" required="false"/>
+							<attribute name="match" required="false"/>
+							<attribute name="replace" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+							<element name="regexp" required="false"/>
+							<element name="substitution" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Performs regular expression string replacements in a text
+ file.  The input file(s) must be able to be properly processed by
+ a Reader instance.  That is, they must be text only, no binary.
+
+ The syntax of the regular expression depends on the implemtation that
+ you choose to use. The system property ant.regexp.regexpimpl
+ will be the classname of the implementation that will be used (the default
+ is org.apache.tools.ant.util.regexp.JakartaOroRegexp and
+ requires the Jakarta Oro Package).
+
+  ]]></description>
+				</task>
+				<task name="rmic">
+					<structure>
+						<attributes>
+							<attribute name="base" required="true"/>
+							<attribute name="classname" required="false"/>
+							<attribute name="classpath" required="false"/>
+							<attribute name="classpathref" required="false"/>
+							<attribute name="compiler" required="false"/>
+							<attribute name="debug" required="false"/>
+							<attribute name="extdirs" required="false"/>
+							<attribute name="filtering" required="false"/>
+							<attribute name="idl" required="false"/>
+							<attribute name="idlopts" required="false"/>
+							<attribute name="iiop" required="false"/>
+							<attribute name="iiopopts" required="false"/>
+							<attribute name="includeantruntime" required="false"/>
+							<attribute name="includejavaruntime" required="false"/>
+							<attribute name="sourcebase" required="false"/>
+							<attribute name="stubversion" required="false"/>
+							<attribute name="verify" required="false"/>
+						</attributes>
+						<elements>
+							<element name="classpath" required="false"/>
+							<element name="compilerarg" required="false"/>
+							<element name="extdirs" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Runs the rmic compiler against classes.</p>
+ <p>Rmic can be run on a single class (as specified with the classname
+ attribute) or a number of classes at once (all classes below base that
+ are neither _Stub nor _Skel classes).  If you want to rmic a single
+ class and this class is a class nested into another class, you have to
+ specify the classname in the form Outer$$Inner instead of
+ Outer.Inner.</p>
+  ]]></description>
+				</task>
+				<task name="rpm">
+					<structure>
+						<attributes>
+							<attribute name="cleanbuilddir" required="false"/>
+							<attribute name="command" required="false"/>
+							<attribute name="error" required="false"/>
+							<attribute name="output" required="false"/>
+							<attribute name="removesource" required="false"/>
+							<attribute name="removespec" required="false"/>
+							<attribute name="specfile" required="true"/>
+							<attribute name="topdir" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Invokes the rpm tool to build a Linux installation file.
+  ]]></description>
+				</task>
+				<task name="script">
+					<structure>
+						<attributes>
+							<attribute name="language" required="true"/>
+							<attribute name="src" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Executes a script.
+  ]]></description>
+				</task>
+				<task name="sequential">
+					<structure/>
+					<description><![CDATA[
+    Sequential is a container task - it can contain other Ant tasks. The nested 
+ tasks are simply executed in sequence. Sequential's primary use is to support 
+ the sequential execution of a subset of tasks within the
+{@link Parallel Parallel Task} 
+
+ <p>
+ The sequential task has no attributes and does not support any nested 
+ elements apart from Ant tasks. Any valid Ant task may be embedded within the 
+ sequential task.</p>
+  ]]></description>
+				</task>
+				<task name="serverdeploy">
+					<structure>
+						<attributes>
+							<attribute name="action" required="true"/>
+							<attribute name="source" required="false"/>
+						</attributes>
+						<elements>
+							<element name="generic" required="false"/>
+							<element name="jonas" required="false"/>
+							<element name="weblogic" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Controls hot deployment tools for J2EE servers.
+
+  This class is used as a framework for the creation of vendor specific
+  hot deployment tools.
+  ]]></description>
+				</task>
+				<task name="setproxy">
+					<structure>
+						<attributes>
+							<attribute name="nonproxyhosts" required="false"/>
+							<attribute name="proxyhost" required="false"/>
+							<attribute name="proxyport" required="false"/>
+							<attribute name="socksproxyhost" required="false"/>
+							<attribute name="socksproxyport" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Sets Java's web proxy properties, so that tasks and code run in
+ the same JVM can have through-the-firewall access to remote web sites,
+ and remote ftp sites.
+ You can nominate an http and ftp proxy, or a socks server, reset the server 
+ settings, or do nothing at all.
+ <p> 
+ 
+  ]]></description>
+				</task>
+				<task name="signjar">
+					<structure>
+						<attributes>
+							<attribute name="alias" required="false"/>
+							<attribute name="internalsf" required="false"/>
+							<attribute name="jar" required="false"/>
+							<attribute name="keypass" required="false"/>
+							<attribute name="keystore" required="false"/>
+							<attribute name="lazy" required="false"/>
+							<attribute name="sectionsonly" required="false"/>
+							<attribute name="sigfile" required="false"/>
+							<attribute name="signedjar" required="false"/>
+							<attribute name="storepass" required="false"/>
+							<attribute name="storetype" required="false"/>
+							<attribute name="verbose" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Signs jar or zip files with the javasign command line tool. The
+ tool detailed dependency checking: files are only signed if they
+ are not signed. The <tt>signjar</tt> attribute can point to the file to
+ generate; if this file exists then
+ its modification date is used as a cue as to whether to resign any JAR file.
+ <br>  
+ <strong>Note:</strong> Requires Java 1.2 or later. </p>
+  ]]></description>
+				</task>
+				<task name="sleep">
+					<structure>
+						<attributes>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="hours" required="false"/>
+							<attribute name="milliseconds" required="false"/>
+							<attribute name="minutes" required="false"/>
+							<attribute name="seconds" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Sleep, or pause, for a period of time.
+
+ A task for sleeping a short period of time, useful when a
+ build or deployment process requires an interval between tasks.
+<p>
+ A negative value can be supplied to any of attributes provided the total sleep time 
+ is positive, pending fundamental changes in physics and JVM
+ execution tims</p>
+ Note that sleep times are always hints to be interpred by the OS how it feels 
+ small times may either be ignored or rounded up to a minimum timeslice. Note 
+ also that the system clocks often have a fairly low granularity too, which complicates 
+ measuring how long a sleep actually took.</p>
+  ]]></description>
+				</task>
+				<task name="soscheckin">
+					<structure>
+						<attributes>
+							<attribute name="comment" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="label" required="false"/>
+							<attribute name="localpath" required="false"/>
+							<attribute name="nocache" required="false"/>
+							<attribute name="nocompress" required="false"/>
+							<attribute name="password" required="false"/>
+							<attribute name="projectpath" required="false"/>
+							<attribute name="recursive" required="false"/>
+							<attribute name="soscmd" required="false"/>
+							<attribute name="soshome" required="false"/>
+							<attribute name="sosserverpath" required="false"/>
+							<attribute name="username" required="false"/>
+							<attribute name="verbose" required="false"/>
+							<attribute name="version" required="false"/>
+							<attribute name="vssserverpath" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Commits and unlocks files in Visual SourceSafe via a SourceOffSite server.
+   ]]></description>
+				</task>
+				<task name="soscheckout">
+					<structure>
+						<attributes>
+							<attribute name="comment" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="label" required="false"/>
+							<attribute name="localpath" required="false"/>
+							<attribute name="nocache" required="false"/>
+							<attribute name="nocompress" required="false"/>
+							<attribute name="password" required="false"/>
+							<attribute name="projectpath" required="false"/>
+							<attribute name="recursive" required="false"/>
+							<attribute name="soscmd" required="false"/>
+							<attribute name="soshome" required="false"/>
+							<attribute name="sosserverpath" required="false"/>
+							<attribute name="username" required="false"/>
+							<attribute name="verbose" required="false"/>
+							<attribute name="version" required="false"/>
+							<attribute name="vssserverpath" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Retrieves and locks files in Visual SourceSafe via a SourceOffSite server.
+  ]]></description>
+				</task>
+				<task name="sosget">
+					<structure>
+						<attributes>
+							<attribute name="comment" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="label" required="false"/>
+							<attribute name="localpath" required="false"/>
+							<attribute name="nocache" required="false"/>
+							<attribute name="nocompress" required="false"/>
+							<attribute name="password" required="false"/>
+							<attribute name="projectpath" required="false"/>
+							<attribute name="recursive" required="false"/>
+							<attribute name="soscmd" required="false"/>
+							<attribute name="soshome" required="false"/>
+							<attribute name="sosserverpath" required="false"/>
+							<attribute name="username" required="false"/>
+							<attribute name="verbose" required="false"/>
+							<attribute name="version" required="false"/>
+							<attribute name="vssserverpath" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Retrieves a read-only copy of the specified project or file
+ from Visual SourceSafe via a SourceOffSite server.
+  ]]></description>
+				</task>
+				<task name="soslabel">
+					<structure>
+						<attributes>
+							<attribute name="comment" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="label" required="false"/>
+							<attribute name="localpath" required="false"/>
+							<attribute name="nocache" required="false"/>
+							<attribute name="nocompress" required="false"/>
+							<attribute name="password" required="false"/>
+							<attribute name="projectpath" required="false"/>
+							<attribute name="recursive" required="false"/>
+							<attribute name="soscmd" required="false"/>
+							<attribute name="soshome" required="false"/>
+							<attribute name="sosserverpath" required="false"/>
+							<attribute name="username" required="false"/>
+							<attribute name="verbose" required="false"/>
+							<attribute name="version" required="false"/>
+							<attribute name="vssserverpath" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Labels Visual SourceSafe files via a SourceOffSite server.
+  ]]></description>
+				</task>
+				<task name="sound">
+					<structure>
+						<elements>
+							<element name="fail" required="false"/>
+							<element name="success" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Plays a sound file at the end of the build, according to whether the build failed or succeeded.
+
+ There are three attributes to be set:
+
+ source: the location of the audio file to be played
+ duration: play the sound file continuously until "duration" milliseconds has expired
+ loops: the number of times the sound file should be played until stopped
+
+ I have only tested this with .WAV and .AIFF sound file formats. Both seem
+ to work fine.
+
+ plans for the future:
+ - use the midi api to define sounds (or drum beat etc) in xml and have
+   Ant play them back
+  ]]></description>
+				</task>
+				<task name="splash">
+					<structure>
+						<attributes>
+							<attribute name="imageurl" required="false"/>
+							<attribute name="password" required="false"/>
+							<attribute name="port" required="false"/>
+							<attribute name="proxy" required="false"/>
+							<attribute name="showduration" required="false"/>
+							<attribute name="user" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Creates a splash screen. The splash screen is displayed
+ for the duration of the build and includes a handy progress bar as
+ well. Use in conjunction with the sound task to provide interest
+ whilst waiting for your builds to complete...
+  ]]></description>
+				</task>
+				<task name="sql">
+					<structure>
+						<attributes>
+							<attribute name="append" required="false"/>
+							<attribute name="autocommit" required="false"/>
+							<attribute name="caching" required="false"/>
+							<attribute name="classpath" required="false"/>
+							<attribute name="classpathref" required="false"/>
+							<attribute name="delimiter" required="false"/>
+							<attribute name="delimitertype" required="false"/>
+							<attribute name="driver" required="true"/>
+							<attribute name="encoding" required="false"/>
+							<attribute name="onerror" required="false"/>
+							<attribute name="output" required="false"/>
+							<attribute name="password" required="true"/>
+							<attribute name="print" required="false"/>
+							<attribute name="rdbms" required="false"/>
+							<attribute name="showheaders" required="false"/>
+							<attribute name="src" required="false"/>
+							<attribute name="url" required="true"/>
+							<attribute name="userid" required="true"/>
+							<attribute name="version" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+							<element name="classpath" required="false"/>
+							<element name="transaction" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Executes a series of SQL statements on a database using JDBC.
+
+ <p>Statements can
+ either be read in from a text file using the <i>src</i> attribute or from 
+ between the enclosing SQL tags.</p>
+ <p>Multiple statements can be provided, separated by semicolons (or the 
+ defined <i>delimiter</i>). Individual lines within the statements can be 
+ commented using either --, // or REM at the start of the line.</p>
+ <p>The <i>autocommit</i> attribute specifies whether auto-commit should be 
+ turned on or off whilst executing the statements. If auto-commit is turned 
+ on each statement will be executed and committed. If it is turned off the 
+ statements will all be executed as one transaction.</p>
+ <p>The <i>onerror</i> attribute specifies how to proceed when an error occurs 
+ during the execution of one of the statements. 
+ The possible values are: <b>continue</b> execution, only show the error;
+ <b>stop</b> execution and commit transaction;
+ and <b>abort</b> execution and transaction and fail task.</p>
+  ]]></description>
+				</task>
+				<task name="stylebook">
+					<structure>
+						<attributes>
+							<attribute name="append" required="false"/>
+							<attribute name="book" required="true"/>
+							<attribute name="classname" required="false"/>
+							<attribute name="classpath" required="false"/>
+							<attribute name="classpathref" required="false"/>
+							<attribute name="dir" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="fork" required="false"/>
+							<attribute name="jvmversion" required="false"/>
+							<attribute name="jar" required="false"/>
+							<attribute name="jvm" required="false"/>
+							<attribute name="jvmargs" required="false"/>
+							<attribute name="loaderconfig" required="false"/>
+							<attribute name="maxmemory" required="false"/>
+							<attribute name="newenvironment" required="false"/>
+							<attribute name="output" required="false"/>
+							<attribute name="skindirectory" required="true"/>
+							<attribute name="targetdirectory" required="true"/>
+							<attribute name="timeout" required="false"/>
+						</attributes>
+						<elements>
+							<element name="env" required="false"/>
+							<element name="sysproperty" required="false"/>
+							<element name="arg" required="false"/>
+							<element name="classpath" required="false"/>
+							<element name="jvmarg" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[Executes the Apache Stylebook documentation generator.
+
+ Unlike the commandline version of this tool, all three arguments
+
+ are required to run stylebook.
+
+ <p>
+ Being extended from <font color="#8b0000">&nbsp;Being&nbsp;extended&nbsp;from&nbsp;</font><font color="#0000ff">&lt;</font><font color="#00008b">Java</font><font color="#0000ff">&gt;</font>, all the parent's attributes
+
+ and options are available. Do not set any apart from the <tt>classpath</tt>
+ as they are not guaranteed to be there in future.]]></description>
+				</task>
+				<task name="tar">
+					<structure>
+						<attributes>
+							<attribute name="basedir" required="false"/>
+							<attribute name="compression" required="false"/>
+							<attribute name="destfile" required="true"/>
+							<attribute name="longfile" required="false"/>
+						</attributes>
+						<elements>
+							<element name="tarfileset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Creates a tar archive.
+  ]]></description>
+				</task>
+				<task name="taskdef">
+					<structure>
+						<attributes>
+							<attribute name="classname" required="false"/>
+							<attribute name="classpath" required="false"/>
+							<attribute name="classpathref" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="loaderref" required="false"/>
+							<attribute name="name" required="false"/>
+							<attribute name="resource" required="false"/>
+						</attributes>
+						<elements>
+							<element name="classpath" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Adds a task definition to the current project, such that this new task can be
+ used in the current project. Two attributes are needed, the name that identifies
+ this task uniquely, and the full name of the class (including the packages) that
+ implements this task.</p>
+ <p>You can also define a group of tasks at once using the file or
+ resource attributes.  These attributes point to files in the format of
+ Java property files.  Each line defines a single task in the
+ format:</p>
+ <pre>
+ taskname=fully.qualified.java.classname
+ </pre>
+  ]]></description>
+				</task>
+				<task name="telnet">
+					<structure>
+						<attributes>
+							<attribute name="initialcr" required="false"/>
+							<attribute name="password" required="false"/>
+							<attribute name="port" required="false"/>
+							<attribute name="server" required="true"/>
+							<attribute name="timeout" required="false"/>
+							<attribute name="userid" required="false"/>
+						</attributes>
+						<elements>
+							<element name="read" required="false"/>
+							<element name="write" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Automates the telnet protocol.
+  ]]></description>
+				</task>
+				<task name="tempfile">
+					<structure>
+						<attributes>
+							<attribute name="destdir" required="false"/>
+							<attribute name="prefix" required="false"/>
+							<attribute name="property" required="false"/>
+							<attribute name="suffix" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[This task sets a property to  the name of a temporary file. 
+
+  Unlike the Java1.2 method to create a temporary file, this task
+
+  does work on Java1.1. Also, it does not actually create the
+
+  temporary file, but it does guarantee that the file did not
+
+  exist when the task was executed. 
+
+ <p>  
+
+ Examples
+
+ <p><font color="#0000ff">&gt;</font><font color="#0000ff">&lt;</font><font color="#00008b">tempfile</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">property</font><font color="#0000ff">=</font><font color="#008080">"temp.file"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">/</font><font color="#0000ff">&gt;</font><br>
+<br>
+ create a temporary file
+
+ <p><font color="#0000ff">&gt;</font><font color="#0000ff">&lt;</font><font color="#00008b">tempfile</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">property</font><font color="#0000ff">=</font><font color="#008080">"temp.file"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">suffix</font><font color="#0000ff">=</font><font color="#008080">".xml"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">/</font><font color="#0000ff">&gt;</font><br>
+<br>
+ create a temporary file with the .xml suffix.
+
+ <p><font color="#0000ff">&gt;</font><font color="#0000ff">&lt;</font><font color="#00008b">tempfile</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">property</font><font color="#0000ff">=</font><font color="#008080">"temp.file"</font><font color="#ff00ff">&nbsp;</font><font color="#0000ff">destDir</font><font color="#0000ff">=</font><font color="#008080">"build"</font><font color="#0000ff">/</font><font color="#0000ff">&gt;</font><br>
+<br>
+ create a temp file in the build subdir]]></description>
+				</task>
+				<task name="touch">
+					<structure>
+						<attributes>
+							<attribute name="datetime" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="millis" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Touch a file and/or fileset(s); corresponds to the Unix touch command.
+
+ <p>If the file to touch doesn't exist, an empty one is
+ created. </p>
+ <p>Note: Setting the modification time of files is not supported in
+ JDK 1.1.</p>
+  ]]></description>
+				</task>
+				<task name="translate">
+					<structure>
+						<attributes>
+							<attribute name="bundle" required="true"/>
+							<attribute name="bundlecountry" required="false"/>
+							<attribute name="bundleencoding" required="false"/>
+							<attribute name="bundlelanguage" required="false"/>
+							<attribute name="bundlevariant" required="false"/>
+							<attribute name="destencoding" required="false"/>
+							<attribute name="endtoken" required="true"/>
+							<attribute name="forceoverwrite" required="false"/>
+							<attribute name="srcencoding" required="false"/>
+							<attribute name="starttoken" required="true"/>
+							<attribute name="todir" required="true"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Translates text embedded in files using Resource Bundle files.
+  ]]></description>
+				</task>
+				<task name="tstamp">
+					<structure>
+						<attributes>
+							<attribute name="prefix" required="false"/>
+						</attributes>
+						<elements>
+							<element name="format" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Sets properties to the current time, or offsets from the current time.
+ The default properties are TSTAMP, DSTAMP and TODAY;
+  ]]></description>
+				</task>
+				<task name="typedef">
+					<structure>
+						<attributes>
+							<attribute name="classname" required="false"/>
+							<attribute name="classpath" required="false"/>
+							<attribute name="classpathref" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="loaderref" required="false"/>
+							<attribute name="name" required="false"/>
+							<attribute name="resource" required="false"/>
+						</attributes>
+						<elements>
+							<element name="classpath" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Adds a data type definition to the current project.
+ Two attributes are
+ needed, the name that identifies this data type uniquely, and the full
+ name of the class (including the packages) that implements this
+ type.
+ <p>You can also define a group of data types at once using the file or
+ resource attributes.  These attributes point to files in the format of
+ Java property files.   Each line defines a single data type in the
+ format:</p>
+ <pre>
+ typename=fully.qualified.java.classname
+ </pre>
+ <p>Typedef should be used to add your own types to the system. Data
+ types are things likepaths or filesets that can be defined at
+ the project level and referenced via their ID attribute.</p>
+ <p>Custom data types usually need custom tasks to put them to good use.</p>
+  ]]></description>
+				</task>
+				<task name="untar">
+					<structure>
+						<attributes>
+							<attribute name="compression" required="false"/>
+							<attribute name="dest" required="false"/>
+							<attribute name="overwrite" required="false"/>
+							<attribute name="src" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+							<element name="patternset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Untar a file.
+ <p>For JDK 1.1 "last modified time" field is set to current time instead of being
+ carried from the archive file.</p>
+ <p>PatternSets are used to select files to extract
+ <I>from</I> the archive.  If no patternset is used, all files are extracted.
+ </p>
+ <p>FileSet>s may be used used to select archived files
+ to perform unarchival upon.
+ </p>
+ <p>File permissions will not be restored on extracted files.</p>
+ <p>The untar task recognizes the long pathname entries used by GNU tar.<p>
+  ]]></description>
+				</task>
+				<task name="unzip">
+					<structure>
+						<attributes>
+							<attribute name="dest" required="true"/>
+							<attribute name="overwrite" required="false"/>
+							<attribute name="src" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+							<element name="patternset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Unzip a file.
+  ]]></description>
+				</task>
+				<task name="uptodate">
+					<structure>
+						<attributes>
+							<attribute name="property" required="true"/>
+							<attribute name="srcfile" required="false"/>
+							<attribute name="targetfile" required="false"/>
+							<attribute name="value" required="false"/>
+						</attributes>
+						<elements>
+							<element name="srcfiles" required="false"/>
+							<element name="mapper" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Sets the given property if the specified target has a timestamp
+ greater than all of the source files.
+  ]]></description>
+				</task>
+				<task name="vajexport">
+					<structure>
+						<attributes>
+							<attribute name="defaultexcludes" required="false"/>
+							<attribute name="destdir" required="false"/>
+							<attribute name="excludes" required="false"/>
+							<attribute name="exportclasses" required="false"/>
+							<attribute name="exportdebuginfo" required="false"/>
+							<attribute name="exportresources" required="false"/>
+							<attribute name="exportsources" required="false"/>
+							<attribute name="includes" required="false"/>
+							<attribute name="overwrite" required="false"/>
+							<attribute name="remote" required="false"/>
+						</attributes>
+						<elements>
+							<element name="exclude" required="false"/>
+							<element name="include" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Export packages from the Visual Age for Java workspace.
+ The packages are specified similar to all other MatchingTasks.
+ Since the VA Workspace is not file based, this task is simulating
+ a directory hierarchy for the workspace:
+ The 'root' contains all project 'dir's, and the projects contain
+ their respective package 'dir's.
+  ]]></description>
+				</task>
+				<task name="vajimport">
+					<structure>
+						<attributes>
+							<attribute name="defaultexcludes" required="false"/>
+							<attribute name="importclasses" required="false"/>
+							<attribute name="importresources" required="false"/>
+							<attribute name="importsources" required="false"/>
+							<attribute name="project" required="false"/>
+							<attribute name="remote" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Import source, class files, and resources to the Visual Age for Java
+ workspace.
+  ]]></description>
+				</task>
+				<task name="vajload">
+					<structure>
+						<attributes>
+							<attribute name="remote" required="false"/>
+						</attributes>
+						<elements>
+							<element name="vajproject" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Load specific project versions into the Visual Age for Java workspace.
+ Each project and version name has to be specified completely.
+ Example:  
+ <blockquote> 
+ <vajload>
+  <project name="MyVAProject" version="2.1"/>
+  <project name="Apache Xerces" version="1.2.0"/>
+ </vajload>
+ </blockquote>
+  ]]></description>
+				</task>
+				<task name="vssadd">
+					<structure>
+						<attributes>
+							<attribute name="autoresponse" required="false"/>
+							<attribute name="comment" required="false"/>
+							<attribute name="localpath" required="false"/>
+							<attribute name="login" required="false"/>
+							<attribute name="recursive" required="false"/>
+							<attribute name="serverpath" required="false"/>
+							<attribute name="ssdir" required="false"/>
+							<attribute name="vsspath" required="false"/>
+							<attribute name="writable" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Performs Add commands to Microsoft Visual SourceSafe.
+ Based on the VSS Checkin code by Martin Poeschl
+  ]]></description>
+				</task>
+				<task name="vsscheckin">
+					<structure>
+						<attributes>
+							<attribute name="autoresponse" required="false"/>
+							<attribute name="comment" required="false"/>
+							<attribute name="localpath" required="false"/>
+							<attribute name="login" required="false"/>
+							<attribute name="recursive" required="false"/>
+							<attribute name="serverpath" required="false"/>
+							<attribute name="ssdir" required="false"/>
+							<attribute name="vsspath" required="false"/>
+							<attribute name="writable" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Performs CheckIn commands to Microsoft Visual SourceSafe.
+  ]]></description>
+				</task>
+				<task name="vsscheckout">
+					<structure>
+						<attributes>
+							<attribute name="autoresponse" required="false"/>
+							<attribute name="date" required="false"/>
+							<attribute name="label" required="false"/>
+							<attribute name="localpath" required="false"/>
+							<attribute name="login" required="false"/>
+							<attribute name="recursive" required="false"/>
+							<attribute name="serverpath" required="false"/>
+							<attribute name="ssdir" required="false"/>
+							<attribute name="version" required="false"/>
+							<attribute name="vsspath" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Performs CheckOut commands to Microsoft Visual SourceSafe.
+ <p>If you specify two or more attributes from version, date and 
+ label only one will be used in the order version, date, label.</p>
+  ]]></description>
+				</task>
+				<task name="vsscp">
+					<structure>
+						<attributes>
+							<attribute name="autoresponse" required="false"/>
+							<attribute name="login" required="false"/>
+							<attribute name="serverpath" required="false"/>
+							<attribute name="ssdir" required="false"/>
+							<attribute name="vsspath" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Performs CP (Change Project) commands to Microsoft Visual SourceSafe.
+ <p>This task is typically used before a VssAdd in order to set the target project</p>
+ Based on the VSS Checkin code by Martin Poeschl
+  ]]></description>
+				</task>
+				<task name="vsscreate">
+					<structure>
+						<attributes>
+							<attribute name="autoresponse" required="false"/>
+							<attribute name="comment" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="login" required="false"/>
+							<attribute name="quiet" required="false"/>
+							<attribute name="serverpath" required="false"/>
+							<attribute name="ssdir" required="false"/>
+							<attribute name="vsspath" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Creates a new project in Microsoft Visual SourceSafe.
+  ]]></description>
+				</task>
+				<task name="vssget">
+					<structure>
+						<attributes>
+							<attribute name="autoresponse" required="false"/>
+							<attribute name="date" required="false"/>
+							<attribute name="label" required="false"/>
+							<attribute name="localpath" required="false"/>
+							<attribute name="login" required="false"/>
+							<attribute name="quiet" required="false"/>
+							<attribute name="recursive" required="false"/>
+							<attribute name="serverpath" required="false"/>
+							<attribute name="ssdir" required="false"/>
+							<attribute name="version" required="false"/>
+							<attribute name="vsspath" required="false"/>
+							<attribute name="writable" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Perform Get commands to Microsoft Visual SourceSafe.
+ <p>Note that only one of version, date or label should be specified</p>
+  ]]></description>
+				</task>
+				<task name="vsshistory">
+					<structure>
+						<attributes>
+							<attribute name="dateformat" required="false"/>
+							<attribute name="fromdate" required="false"/>
+							<attribute name="fromlabel" required="false"/>
+							<attribute name="login" required="false"/>
+							<attribute name="numdays" required="false"/>
+							<attribute name="output" required="false"/>
+							<attribute name="recursive" required="false"/>
+							<attribute name="serverpath" required="false"/>
+							<attribute name="ssdir" required="false"/>
+							<attribute name="style" required="false"/>
+							<attribute name="todate" required="false"/>
+							<attribute name="tolabel" required="false"/>
+							<attribute name="user" required="false"/>
+							<attribute name="vsspath" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Performs History commands to Microsoft Visual SourceSafe.
+  ]]></description>
+				</task>
+				<task name="vsslabel">
+					<structure>
+						<attributes>
+							<attribute name="autoresponse" required="false"/>
+							<attribute name="comment" required="false"/>
+							<attribute name="label" required="false"/>
+							<attribute name="login" required="false"/>
+							<attribute name="serverpath" required="false"/>
+							<attribute name="ssdir" required="false"/>
+							<attribute name="version" required="false"/>
+							<attribute name="vsspath" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Performs Label commands to Microsoft Visual SourceSafe.
+  ]]></description>
+				</task>
+				<task name="waitfor">
+					<structure>
+						<attributes>
+							<attribute name="checkevery" required="false"/>
+							<attribute name="checkeveryunit" required="false"/>
+							<attribute name="maxwait" required="false"/>
+							<attribute name="maxwaitunit" required="false"/>
+							<attribute name="timeoutproperty" required="false"/>
+						</attributes>
+						<elements>
+							<element name="and" required="false"/>
+							<element name="available" required="false"/>
+							<element name="checksum" required="false"/>
+							<element name="contains" required="false"/>
+							<element name="equals" required="false"/>
+							<element name="filesmatch" required="false"/>
+							<element name="http" required="false"/>
+							<element name="isfalse" required="false"/>
+							<element name="isset" required="false"/>
+							<element name="istrue" required="false"/>
+							<element name="not" required="false"/>
+							<element name="or" required="false"/>
+							<element name="os" required="false"/>
+							<element name="socket" required="false"/>
+							<element name="uptodate" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Wait for an external event to occur.
+
+ Wait for an external process to start or to complete some
+ task. This is useful with the parallel task to
+ syncronize the execution of tests with server startup.
+
+ The maxwaitunit and checkeveryunit are allowed to have the following values:
+ millesond, second, minute, hour, day and week. The default is millisecond.
+  ]]></description>
+				</task>
+				<task name="war">
+					<structure>
+						<attributes>
+							<attribute name="basedir" required="false"/>
+							<attribute name="compress" required="false"/>
+							<attribute name="destfile" required="true"/>
+							<attribute name="duplicate" required="false"/>
+							<attribute name="encoding" required="false"/>
+							<attribute name="filesonly" required="false"/>
+							<attribute name="index" required="false"/>
+							<attribute name="manifest" required="false"/>
+							<attribute name="update" required="false"/>
+							<attribute name="webxml" required="false"/>
+							<attribute name="whenempty" required="false"/>
+						</attributes>
+						<elements>
+							<element name="classes" required="false"/>
+							<element name="manifest" required="false"/>
+							<element name="fileset" required="false"/>
+							<element name="lib" required="false"/>
+							<element name="metainf" required="false"/>
+							<element name="webinf" required="false"/>
+							<element name="zipgroupfileset" required="false"/>
+							<element name="zipfileset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    An extension of <jar> to create a WAR archive.
+ Contains special treatment for files that should end up in the
+ WEB-INF/lib, WEB-INF/classes or
+ WEB-INF directories of the Web Application Archive.</p>
+ <p>(The War task is a shortcut for specifying the particular layout of a WAR file. 
+ The same thing can be accomplished by using the <i>prefix</i> and <i>fullpath</i>
+ attributes of zipfilesets in a Zip or Jar task.)</p>
+ <p>The extended zipfileset element from the zip task (with attributes <i>prefix</i>, <i>fullpath</i>, and <i>src</i>) is available in the War task.</p>
+  ]]></description>
+				</task>
+				<task name="wljspc">
+					<structure>
+						<attributes>
+							<attribute name="classpath" required="true"/>
+							<attribute name="dest" required="true"/>
+							<attribute name="package" required="true"/>
+							<attribute name="src" required="true"/>
+						</attributes>
+						<elements>
+							<element name="classpath" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Precompiles JSP's using WebLogic's JSP compiler (weblogic.jspc).
+  ]]></description>
+				</task>
+				<task name="wlrun">
+					<structure>
+						<attributes>
+							<attribute name="args" required="false"/>
+							<attribute name="beahome" required="false"/>
+							<attribute name="classpath" required="false"/>
+							<attribute name="domain" required="false"/>
+							<attribute name="home" required="false"/>
+							<attribute name="jvmargs" required="false"/>
+							<attribute name="name" required="false"/>
+							<attribute name="pkpassword" required="false"/>
+							<attribute name="password" required="false"/>
+							<attribute name="policy" required="false"/>
+							<attribute name="properties" required="false"/>
+							<attribute name="username" required="false"/>
+							<attribute name="weblogicmainclass" required="false"/>
+							<attribute name="wlclasspath" required="false"/>
+						</attributes>
+						<elements>
+							<element name="classpath" required="false"/>
+							<element name="wlclasspath" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Starts a WebLogic server.
+ A number of parameters are used to control the operation of the weblogic instance. Note that the task,
+ and hence ant, will not complete until the weblogic instance is stopped.</p>
+  ]]></description>
+				</task>
+				<task name="wlstop">
+					<structure>
+						<attributes>
+							<attribute name="beahome" required="false"/>
+							<attribute name="classpath" required="false"/>
+							<attribute name="delay" required="false"/>
+							<attribute name="password" required="false"/>
+							<attribute name="url" required="false"/>
+							<attribute name="user" required="false"/>
+						</attributes>
+						<elements>
+							<element name="classpath" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Shuts down a WebLogic server.
+ To shut down an instance you must supply both a username and
+ a password.
+  ]]></description>
+				</task>
+				<task name="wsdltodotnet">
+					<structure>
+						<attributes>
+							<attribute name="destfile" required="false"/>
+							<attribute name="extraoptions" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="language" required="false"/>
+							<attribute name="namespace" required="false"/>
+							<attribute name="server" required="false"/>
+							<attribute name="srcfile" required="false"/>
+							<attribute name="url" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Converts a WSDL file or URL resource into a .NET language.
+
+ See "Creating an XML Web Service Proxy", "wsdl.exe" docs in
+ the framework SDK documentation
+  ]]></description>
+				</task>
+				<task name="xmlproperty">
+					<structure>
+						<attributes>
+							<attribute name="collapseattributes" required="false"/>
+							<attribute name="file" required="true"/>
+							<attribute name="keeproot" required="false"/>
+							<attribute name="prefix" required="false"/>
+							<attribute name="validate" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+    Loads property values from a valid XML file,
+ generating the property names from the file's element and attribute names.
+  ]]></description>
+				</task>
+				<task name="xmlvalidate">
+					<structure>
+						<attributes>
+							<attribute name="classname" required="false"/>
+							<attribute name="classpath" required="false"/>
+							<attribute name="classpathref" required="false"/>
+							<attribute name="failonerror" required="false"/>
+							<attribute name="file" required="false"/>
+							<attribute name="lenient" required="false"/>
+							<attribute name="warn" required="false"/>
+						</attributes>
+						<elements>
+							<element name="xmlcatalog" required="false"/>
+							<element name="fileset" required="false"/>
+							<element name="classpath" required="false"/>
+							<element name="dtd" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Checks XML files are valid (or only well formed). The
+ task uses the SAX2 parser implementation provided by JAXP by default
+ (probably the one that is used by Ant itself), but one can specify any
+ SAX1/2 parser if needed
+  ]]></description>
+				</task>
+				<task name="xslt">
+					<structure>
+						<attributes>
+							<attribute name="basedir" required="false"/>
+							<attribute name="classpath" required="false"/>
+							<attribute name="classpathref" required="false"/>
+							<attribute name="destdir" required="false"/>
+							<attribute name="extension" required="false"/>
+							<attribute name="force" required="false"/>
+							<attribute name="in" required="false"/>
+							<attribute name="out" required="false"/>
+							<attribute name="processor" required="false"/>
+							<attribute name="scanincludeddirectories" required="false"/>
+							<attribute name="style" required="true"/>
+						</attributes>
+						<elements>
+							<element name="xmlcatalog" required="false"/>
+							<element name="classpath" required="false"/>
+							<element name="outputproperty" required="false"/>
+							<element name="param" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Processes a set of XML documents via XSLT. This is
+ useful for building views of XML based documentation.
+  ]]></description>
+				</task>
+				<task name="zip">
+					<structure>
+						<attributes>
+							<attribute name="basedir" required="false"/>
+							<attribute name="compress" required="false"/>
+							<attribute name="destfile" required="true"/>
+							<attribute name="duplicate" required="false"/>
+							<attribute name="encoding" required="false"/>
+							<attribute name="filesonly" required="false"/>
+							<attribute name="update" required="false"/>
+							<attribute name="whenempty" required="false"/>
+						</attributes>
+						<elements>
+							<element name="fileset" required="false"/>
+							<element name="zipgroupfileset" required="false"/>
+							<element name="zipfileset" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+    Create a Zip file.
+  ]]></description>
+				</task>
+				<task name="target">
+					<structure>
+						<attributes>
+							<attribute name="name" required="true"/>
+							<attribute name="depends" required="false"/>
+							<attribute name="if" required="false"/>
+							<attribute name="unless" required="false"/>
+							<attribute name="description" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+		Ant target that is executable and may depend on other targets. 
+	]]></description>
+				</task>
+				<task name="macrodef">
+					<structure>
+						<attributes>
+							<attribute name="name" required="true"/>
+							<attribute name="uri" required="false"/>
+						</attributes>
+						<elements>
+							<element name="attribute" required="false"/>
+							<element name="element" required="false"/>
+						</elements>
+					</structure>
+					<description><![CDATA[
+		This defines a new task using a sequential nested task as a template. Nested elements attribute and element are used to specify attributes and elements of the new task. These get substituted into the sequential task when the new task is run. 
+		Since Ant 1.6.0.
+	]]></description>
+				</task>
+				<task name="import">
+					<structure>
+						<attributes>
+							<attribute name="file" required="true"/>
+							<attribute name="optional" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+		Imports another build file into the current project. 
+		Since Ant 1.6.0.
+	]]></description>
+				</task>
+				<task name="presetdef">
+					<structure>
+						<attributes>
+							<attribute name="name" required="true"/>
+							<attribute name="uri" required="false"/>
+						</attributes>
+					</structure>
+					<description><![CDATA[
+	The preset definition generates a new definition based on a current definition with some attributes or elements preset. 
+		Since Ant 1.6.0.
+	]]></description>
+				</task>
+			</tasks>
+		</structure>
+	</root>
+</ant-codecompletion>

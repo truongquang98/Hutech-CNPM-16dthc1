@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Modified on Monday January 09 15:29:29, 2006 -->
+
+<templates>
+	<template>
+		<label>Ant Script</label>
+		<quickaccess>false</quickaccess>
+		<description>Creates a new empty Ant script file.</description>
+		<type>xml</type>
+		<source>Ant Script.xml.jc</source>
+	</template>
+</templates>

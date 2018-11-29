@@ -1,0 +1,287 @@
+
+<jcreator>
+	<document>
+		<parser>
+			<defaultsyntax>
+				<settings>
+					<case_sensitive>true</case_sensitive>
+					<multiline_strings>false</multiline_strings>
+					<embedded_syntax>false</embedded_syntax>
+					<accept_embedded_syntax>false</accept_embedded_syntax>
+					<parser/>
+				</settings>
+				<syntax>
+					<syntaxstart/>
+					<syntaxend/>
+					<extcommentstart/>
+					<extcommentend/>
+					<extcommentstart2/>
+					<extcommentend2/>
+					<commentstart/>
+					<commentend/>
+					<stringstart/>
+					<stringend/>
+					<charstart/>
+					<charend/>
+					<preprocessor/>
+					<operators/>
+					<brackets/>
+					<escape>\</escape>
+				</syntax>
+				<colors>
+					<normaltext>
+						<foreground>#000000</foreground>
+						<background>#FFFFFF</background>
+						<label>Normal Text</label>
+					</normaltext>
+					<keywords1>
+						<foreground>#0000FF</foreground>
+						<background>#FFFFFF</background>
+						<label>Keyword 1</label>
+					</keywords1>
+					<keywords2>
+						<foreground>#0000FF</foreground>
+						<background>#FFFFFF</background>
+						<label>Keyword 2</label>
+					</keywords2>
+					<keywords3>
+						<foreground>#0000FF</foreground>
+						<background>#FFFFFF</background>
+						<label>Keyword 3</label>
+					</keywords3>
+					<keywords4>
+						<foreground>#0000FF</foreground>
+						<background>#FFFFFF</background>
+						<label>Keyword 4</label>
+					</keywords4>
+					<preprocessors>
+						<foreground>#0000FF</foreground>
+						<background>#FFFFFF</background>
+						<label>Preprocessor</label>
+					</preprocessors>
+					<methods>
+						<foreground>#000000</foreground>
+						<background>#FFFFFF</background>
+						<label>Method Call</label>
+					</methods>
+					<commentline>
+						<foreground>#007F00</foreground>
+						<background>#FFFFFF</background>
+						<label>Comment Line</label>
+					</commentline>
+					<commenttext1>
+						<foreground>#007F00</foreground>
+						<background>#FFFFFF</background>
+						<label>Ext Comment 1</label>
+					</commenttext1>
+					<commenttext2>
+						<foreground>#007F00</foreground>
+						<background>#FFFFFF</background>
+						<label>Ext Comment 2</label>
+					</commenttext2>
+					<numbers>
+						<foreground>#000000</foreground>
+						<background>#FFFFFF</background>
+						<label>Number</label>
+					</numbers>
+					<operators>
+						<foreground>#C00000</foreground>
+						<background>#FFFFFF</background>
+						<label>Operator</label>
+					</operators>
+					<strings>
+						<foreground>#FF0000</foreground>
+						<background>#FFFFFF</background>
+						<label>String</label>
+					</strings>
+					<brackets>
+						<foreground>#FF0000</foreground>
+						<background>#FFFFFF</background>
+						<label>Bracket</label>
+					</brackets>
+					<brackets_highlight>
+						<foreground>#0000FF</foreground>
+						<background>#FFFFFF</background>
+						<label>Bracket Highlight</label>
+					</brackets_highlight>
+					<errortext/>
+					<syntaxstart>
+						<foreground>#000000</foreground>
+						<background>#FFFFFF</background>
+						<label>Syntax Start</label>
+					</syntaxstart>
+					<syntaxend>
+						<foreground>#000000</foreground>
+						<background>#FFFFFF</background>
+						<label>Syntax End</label>
+					</syntaxend>
+					<tag_element>
+						<foreground>#000000</foreground>
+						<background>#FFFFFF</background>
+						<label>Element</label>
+					</tag_element>
+					<tag_attribute>
+						<foreground>#000000</foreground>
+						<background>#FFFFFF</background>
+						<label>Attribute</label>
+					</tag_attribute>
+					<tag_value>
+						<foreground>#000000</foreground>
+						<background>#FFFFFF</background>
+						<label>Attribute Value</label>
+					</tag_value>
+				</colors>
+				<keywords>
+					<keyword_list1/>
+					<keyword_list2/>
+					<keyword_list3/>
+					<keyword_list4/>
+					<preprocessors/>
+				</keywords>
+			</defaultsyntax>
+			<syntaxblock1/>
+			<syntaxblock2/>
+			<syntaxblock3/>
+			<syntaxblock4/>
+			<syntaxblock5/>
+		</parser>
+		<settings>
+			<general>
+				<label>Output</label>
+				<tabsize>4</tabsize>
+				<encoding>-1</encoding>
+				<file_extensions/>
+				<insert_spaces>true</insert_spaces>
+				<auto_indent>false</auto_indent>
+				<indent_mode>none</indent_mode>
+				<indent_engine/>
+				<endofline>AUTO</endofline>
+				<backspace>false</backspace>
+				<autobracket>false</autobracket>
+				<show_spaces>false</show_spaces>
+				<show_linenr>false</show_linenr>
+				<show_margin>true</show_margin>
+				<wordwrap>false</wordwrap>
+				<trim_trailingspaces>false</trim_trailingspaces>
+				<disable_syntax>false</disable_syntax>
+				<textlimit>80</textlimit>
+				<track_changes>false</track_changes>
+			</general>
+			<colors>
+				<whitespace>
+					<foreground>#FFFFFF</foreground>
+					<background>#FFFFFF</background>
+					<label>WhiteSpace</label>
+				</whitespace>
+				<background>
+					<foreground>#FFFFFF</foreground>
+					<background>#FFFFFF</background>
+					<label>Background</label>
+				</background>
+				<leftmargin>
+					<foreground colorxp="#9D9CB4" colorvi="#99B4D1">#7070BF</foreground>
+					<background colorxp="#ECE9D8" colorvi="#F0F0F0">#E2DFDA</background>
+					<label>Left Margin</label>
+				</leftmargin>
+				<selectedtext>
+					<foreground>#FFFFFF</foreground>
+					<background colorxp="#7A9BDF" colorvi="#3399FF">#7070BF</background>
+					<label>Selected Text</label>
+				</selectedtext>
+				<folding_margin>
+					<foreground>#FFFFFF</foreground>
+					<background>#FFFFFF</background>
+					<label>Folding Margin</label>
+				</folding_margin>
+				<folding_box>
+					<foreground>#A9A9A9</foreground>
+					<background>#FFFFFF</background>
+					<label>Folding Box</label>
+				</folding_box>
+				<track_margin>
+					<foreground>#FFD96B</foreground>
+					<background>#FFFF9C</background>
+					<label>Track Changes</label>
+				</track_margin>
+				<strack_margin>
+					<foreground>#8FA6CE</foreground>
+					<background>#CDD8EB</background>
+					<label>Track Saved Changes</label>
+				</strack_margin>
+				<debugpointer>
+					<foreground>#000000</foreground>
+					<background>#FFFF00</background>
+					<label>Debug Pointer</label>
+				</debugpointer>
+				<errorpointer>
+					<foreground>#A02000</foreground>
+					<background>#FF0000</background>
+					<label>Error Pointer</label>
+				</errorpointer>
+				<linepointer>
+					<foreground>#000000</foreground>
+					<background>#E6E6FA</background>
+					<highlight>true</highlight>
+					<label>Line Pointer</label>
+				</linepointer>
+				<line_highlight>
+					<foreground>#000000</foreground>
+					<background>#E6E6FA</background>
+					<label>Cursor Line</label>
+				</line_highlight>
+				<breakpoints>
+					<foreground>#000000</foreground>
+					<background>#FF0000</background>
+					<label>Breakpoint</label>
+				</breakpoints>
+				<disabled_breakpoints>
+					<foreground>#FF0000</foreground>
+					<background>#FFFFFF</background>
+					<label>Disabled Breakpoint</label>
+				</disabled_breakpoints>
+				<bookmarks>
+					<foreground>#000000</foreground>
+					<background>#000080</background>
+					<label>Bookmark</label>
+				</bookmarks>
+				<textlimit_line>
+					<foreground>#EFEBEF</foreground>
+					<background>#EFEBEF</background>
+					<label>Text Limiter</label>
+				</textlimit_line>
+			</colors>
+			<fonts>
+				<screen>
+					<name>Courier</name>
+					<size>-15</size>
+					<charset>1</charset>
+				</screen>
+				<printer>
+					<name>Courier</name>
+					<size>-15</size>
+					<charset>1</charset>
+				</printer>
+			</fonts>
+			<printer>
+				<header_string>&amp;L&amp;f&amp;R&amp;d</header_string>
+				<footer_string>&amp;C&amp;p of &amp;P</footer_string>
+				<margins>0,0,0,0</margins>
+				<papersize>0,0</papersize>
+				<footerline>false</footerline>
+				<headerline>false</headerline>
+				<line_numbers>false</line_numbers>
+				<color>false</color>
+				<wordwrap>false</wordwrap>
+			</printer>
+			<folding>
+				<enable>false</enable>
+				<auto_refresh>true</auto_refresh>
+				<engine/>
+				<initial_collapse>false</initial_collapse>
+				<extend_spaces>false</extend_spaces>
+				<max_level>1</max_level>
+				<max_length>-1</max_length>
+			</folding>
+		</settings>
+	</document>
+</jcreator>

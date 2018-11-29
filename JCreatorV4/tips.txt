@@ -1,0 +1,30 @@
+You can open a document or a workspace file by dragging it from Windows Explorer to the JCreator work area. 
+You can easily integrate ANT, Jikes or other applications using the custom tools or JDK tools. To do so, choose Options and select Tools or JDK Tools.
+You can compile multiple projects by using the batch tool. To do so, choose Compile Batch.. in the Build menu.
+You can create folders in File View to order your project files.
+You can customize menus. To do so, choose Customize... from the Configure menu. In the Commands box, click on the command you want to add, and drag it onto the menu.
+You can float the Menu Bar in Full Screen mode, so you can still access the Menu Bar in Full Screen mode.
+JCreator has a file splitter tool which divides classes from one file into separate files. To do so, choose File Splitter... in the Tools menu.
+You can enable the tab document selector in Full Screen mode. To do so, choose Options... in the Configure menu and uncheck "Hide in Full screen mode" in the general tab.
+You can move toolbar buttons and menus without accessing the Customise dialogue box. Simply hold down the Alt key and drag a toolbar button or menu to its new location.
+JCreator can automatically detect if the same file you are editing in the program has been externally modified.
+You can create your own project templates. Just follow the examples in the Template directory of JCreator. You can create a project from a template in the new dialogue.
+The Execute Project command will automatically determine the file with the main method or the html file with the Applet tag. 
+You can insert bookmarks in a document while you are editing to allow easy navigation. See Bookmarks on the Edit menu.
+You can create new keyboard shortcuts. To do so, choose Customise... from the View menu, then click the Keyboard tab. Select the Command you want to change in the Commands box, then enter the new keyboard shortcut in the Press New Shortcut Key box.
+If you want to search for the next occurrence of a string, double-click on the string and press Ctrl+F3.
+You can close multiple documents. To do so, choose Windows from the Window menu. Select the windows you want to close, and click the Close Window(s) button.
+The class wizard enables you to create class files. The class wizard is especially usefull if you have to generate a lot of classes after a UML session. 
+You can display multiple toolbars. On the View menu, select Toolbars. Toggle the toolbars you want to view.
+You can quickly open the most recent workspace. Look under Recent Workspace Files in the File menu. 
+Press Ctrl+Tab to shift between document windows.
+You can move a window without docking it by holding down the Ctrl key down while you drag the window.
+You can open multiple files in the Open dialogue box, by holding down the Shift or Ctrl key down as you select each file.
+You can press ESC to return from Full Screen mode to normal mode.
+
+
+
+
+
+
+

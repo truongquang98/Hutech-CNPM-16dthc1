@@ -51,10 +51,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(162, 0);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(99, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(460, 117);
+            this.label1.Size = new System.Drawing.Size(588, 109);
             this.label1.TabIndex = 0;
             this.label1.Text = "CAFE FREE";
             this.label1.Click += new System.EventHandler(this.label1_Click);

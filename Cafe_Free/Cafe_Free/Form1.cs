@@ -16,5 +16,11 @@ namespace Cafe_Free
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            GetLoggin log = new GetLoggin();
+            log.ShowDialog();
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace Cafe_Free
             db = new Database();
 
             SqlConnection conn = new SqlConnection();
-            string strSQL = " select *from User where user = '" + txtUser.Text + "'and password = '" +txtPass.Text + "";
+            string strSQL = " select *from User where user = '" + txtUser.Text + "'and password = '" +txtPass.Text + "'";
             db.ExecuteNonQuery(strSQL);
             {
                 this.Hide();

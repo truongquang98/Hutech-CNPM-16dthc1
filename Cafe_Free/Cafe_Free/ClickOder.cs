@@ -16,5 +16,10 @@ namespace Cafe_Free
         {
             InitializeComponent();
         }
+
+        private void ClickOder_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

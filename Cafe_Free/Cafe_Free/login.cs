@@ -21,5 +21,10 @@ namespace Cafe_Free
         {
 
         }
+
+        private void btThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

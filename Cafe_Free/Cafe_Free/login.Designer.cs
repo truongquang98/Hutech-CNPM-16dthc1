@@ -80,6 +80,7 @@
             this.btThoat.TabIndex = 2;
             this.btThoat.Text = "Thoát";
             this.btThoat.UseVisualStyleBackColor = false;
+            this.btThoat.Click += new System.EventHandler(this.btThoat_Click);
             // 
             // label2
             // 

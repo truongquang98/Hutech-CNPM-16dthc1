@@ -19,7 +19,7 @@ namespace Cafe_Free
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            GetLoggin log = new GetLoggin();
+            login log = new login();
             log.ShowDialog();
         }
     }

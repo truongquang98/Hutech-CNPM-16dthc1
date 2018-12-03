@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Cafe_Free
 {
-    public partial class ĐANGNHAP : Form
+    public partial class login : Form
     {
-        public ĐANGNHAP()
+        public login()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
